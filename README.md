@@ -1,6 +1,6 @@
-# Controlled Chaos Plugin
+# Grande Design Plugin
 
-A feature-packed WordPress or ClassicPress starter plugin for building custom-tailored websites.
+Core WordPress/ClassicPress plugin for the Greg Grande website.
 
 ![WordPress tested on version 5.3.2](https://img.shields.io/badge/WordPress-5.3.2-0073aa.svg?style=flat-square)
 ![ClassicPress tested on version 1.1.2](https://img.shields.io/badge/ClassicPress-1.1.2-03768e.svg?style=flat-square)
@@ -10,13 +10,13 @@ A feature-packed WordPress or ClassicPress starter plugin for building custom-ta
 ![Elementor Ready](https://img.shields.io/badge/Elementor-ready-d30c5c.svg?style=flat-square)
 ![Gutenberg Ready](https://img.shields.io/badge/Gutenberg-ready-00a0d2.svg?style=flat-square)
 
-![](https://raw.githubusercontent.com/ControlledChaos/controlled-chaos-plugin/master/assets/images/controlled-chaos-github-banner.jpg)
+![](https://raw.githubusercontent.com/ControlledChaos/grande-design/master/assets/images/controlled-chaos-github-banner.jpg)
 
 ## Plugin Overview
 
-Controlled Chaos Plugin is a tool — a means to an end. It is not intended to be used as is, without further development, however it can be used as such. I use it to build site-specific plugins for clients.
+Grande Design is a tool — a means to an end. It is not intended to be used as is, without further development, however it can be used as such. I use it to build site-specific plugins for clients.
 
-GitHub page for this plugin: [https://controlledchaos.github.io/controlled-chaos-plugin/](https://controlledchaos.github.io/controlled-chaos-plugin/)
+GitHub page for this plugin: [https://controlledchaos.github.io/grande-design/](https://controlledchaos.github.io/grande-design/)
 
 ### Introduction
 
@@ -59,7 +59,7 @@ For a nicer user experience, this plugin is recommended for use with [Advanced C
 
 Settings page with ACF activated...
 
-![Custom welcome panel](https://raw.githubusercontent.com/ControlledChaos/controlled-chaos-plugin/master/assets/images/ccp-acf-settings-01.jpg)
+![Custom welcome panel](https://raw.githubusercontent.com/ControlledChaos/grande-design/master/assets/images/ggd-acf-settings-01.jpg)
 
 ### Gutenberg + ACF
 
@@ -132,7 +132,7 @@ Admin interface options include:
 
 Dashboard with custom welcome panel and sample dashboard widget...
 
-![Custom welcome panel](https://raw.githubusercontent.com/ControlledChaos/controlled-chaos-plugin/master/assets/images/ccp-custom-welcome.jpg)
+![Custom welcome panel](https://raw.githubusercontent.com/ControlledChaos/grande-design/master/assets/images/ggd-custom-welcome.jpg)
 
 ### Post Types on Front Page
 
@@ -181,15 +181,15 @@ Next change the information in the plugin header and either change the plugin na
 
 Following is a list of strings to find and replace in all plugin files.
 
-1. **Plugin name:** Find `Controlled_Chaos_Plugin` and replace with your plugin name, include underscores between words. This will change the primary plugin class name and the package name in file headers.
+1. **Plugin name:** Find `Grande_Design` and replace with your plugin name, include underscores between words. This will change the primary plugin class name and the package name in file headers.
 
-2. **Namespace:** Find `CC_Plugin` and replace with something unique to your plugin name, include underscores between words.
+2. **Namespace:** Find `Grande_Design` and replace with something unique to your plugin name, include underscores between words.
 
-3. **Text domain:** Find `controlled-chaos-plugin` and replace with the new name of your main plugin file, include dashes between words.
+3. **Text domain:** Find `grande-design` and replace with the new name of your main plugin file, include dashes between words.
 
-4. **Constants:** Find `CCP` and replace with something unique to your plugin name. Use only uppercase letters.
+4. **Constants:** Find `GGD` and replace with something unique to your plugin name. Use only uppercase letters.
 
-5. **General prefix:** Find `ccp` and replace with something unique to your plugin name. Use only lowercase letters. This will change the prefix of all filters and settings, and the prefix of functions outside of a class.
+5. **General prefix:** Find `ggd` and replace with something unique to your plugin name. Use only lowercase letters. This will change the prefix of all filters and settings, and the prefix of functions outside of a class.
 
 6. **Author:** Find `Greg Sweet <greg@ccdzine.com>` and replace with your name and email address or those of your organization.
 

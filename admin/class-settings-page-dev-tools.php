@@ -6,14 +6,14 @@
  * at which several tools for the website development process
  * are provieded.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Grande_Design
  * @subpackage Admin
  *
  * @since      1.0.0
  * @author     Greg Sweet <greg@ccdzine.com>
  */
 
-namespace CC_Plugin\Admin;
+namespace Grande_Design\Admin;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
@@ -81,10 +81,10 @@ class Settings_Page_Dev_Tools {
 	public function settings_page() {
 
 		$this->page_help_section = add_management_page(
-			__( 'Website Development', 'controlled-chaos-plugin' ),
-			__( 'Site Development', 'controlled-chaos-plugin' ),
+			__( 'Website Development', 'grande-design' ),
+			__( 'Site Development', 'grande-design' ),
 			'manage_options',
-			CCP_ADMIN_SLUG . '-dev-tools',
+			GGD_ADMIN_SLUG . '-dev-tools',
 			[ $this, 'page_output' ]
 		);
 
@@ -102,7 +102,7 @@ class Settings_Page_Dev_Tools {
 	 */
 	public function page_output() {
 
-		require CCP_PATH . 'admin/partials/settings-page-development.php';
+		require GGD_PATH . 'admin/partials/settings-page-development.php';
 
 	}
 
@@ -124,7 +124,7 @@ class Settings_Page_Dev_Tools {
 		// More information.
 		$screen->add_help_tab( [
 			'id'       => 'help_dev_info',
-			'title'    => __( 'More Information', 'controlled-chaos-plugin' ),
+			'title'    => __( 'More Information', 'grande-design' ),
 			'content'  => null,
 			'callback' => [ $this, 'help_dev_info_output' ]
 		] );
@@ -145,7 +145,7 @@ class Settings_Page_Dev_Tools {
      */
 	public function help_dev_info_output() {
 
-		include_once CCP_PATH . 'admin/partials/help/help-dev-info.php';
+		include_once GGD_PATH . 'admin/partials/help/help-dev-info.php';
 
     }
 
@@ -173,11 +173,11 @@ class Settings_Page_Dev_Tools {
  * @access public
  * @return object Returns an instance of the class.
  */
-function ccp_settings_page_dev_tools() {
+function ggd_settings_page_dev_tools() {
 
 	return Settings_Page_Dev_Tools::instance();
 
 }
 
 // Run an instance of the class.
-ccp_settings_page_dev_tools();
+ggd_settings_page_dev_tools();

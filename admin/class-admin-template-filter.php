@@ -2,14 +2,14 @@
 /**
  * Filter post types by page template.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Grande_Design
  * @subpackage Admin
  *
  * @since      1.0.0
  * @author     Greg Sweet <greg@ccdzine.com>
  */
 
-namespace CC_Plugin\Admin;
+namespace Grande_Design\Admin;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
@@ -101,8 +101,8 @@ class Filter_By_Template {
 		// The HTML of the dropdown select box abave the table.
 		?>
 		<select name="page_template_filter" id="page_template_filter">
-			<option value="all"><?php _e( 'All Page Templates', 'controlled-chaos-plugin' ); ?></option>
-			<option value="default" <?php echo ( $template == 'default' ) ? ' selected="selected" ' : ''; ?>><?php echo _e( 'Default Template', 'controlled-chaos-plugin' ); ?></option>
+			<option value="all"><?php _e( 'All Page Templates', 'grande-design' ); ?></option>
+			<option value="default" <?php echo ( $template == 'default' ) ? ' selected="selected" ' : ''; ?>><?php echo _e( 'Default Template', 'grande-design' ); ?></option>
 			<?php page_template_dropdown( $template ); ?>
 		</select>
 		<?php
@@ -157,7 +157,7 @@ class Filter_By_Template {
 	public function template_columns_head( $columns ) {
 
 		// The column heading name to new `template` column.
-		$columns['template'] = __( 'Template', 'controlled-chaos-plugin' );
+		$columns['template'] = __( 'Template', 'grande-design' );
 
 		// Return the heading name.
 		return $columns;
@@ -189,8 +189,8 @@ class Filter_By_Template {
 
 					echo sprintf(
 						'<span title="%1s">%2s</span>',
-						__( 'Default Template', 'controlled-chaos-plugin' ),
-						__( 'Default Template', 'controlled-chaos-plugin' )
+						__( 'Default Template', 'grande-design' ),
+						__( 'Default Template', 'grande-design' )
 					);
 
 				// If it's not the default template.
@@ -203,7 +203,7 @@ class Filter_By_Template {
 	        		if ( isset( $templates[ $template ] ) ) {
 	        			echo sprintf(
 							'<span title="%1s %2s">%3s</span>',
-							__( 'Template file:', 'controlled-chaos-plugin' ),
+							__( 'Template file:', 'grande-design' ),
 							$template,
 							$templates[ $template ]
 						);
@@ -212,7 +212,7 @@ class Filter_By_Template {
 	        		} else {
 	        			echo sprintf(
 							'<span title="%1s">%2s</span>',
-							__( 'This template file does not exist', 'controlled-chaos-plugin' ),
+							__( 'This template file does not exist', 'grande-design' ),
 							$template
 						);
 					}
@@ -234,11 +234,11 @@ class Filter_By_Template {
  * @access public
  * @return object Returns an instance of the class.
  */
-function ccp_filter_by_template() {
+function ggd_filter_by_template() {
 
 	return Filter_By_Template::instance();
 
 }
 
 // Run an instance of the class.
-ccp_filter_by_template();
+ggd_filter_by_template();

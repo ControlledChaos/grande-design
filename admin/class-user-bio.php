@@ -9,14 +9,14 @@
  * the author biography on single posts. A content editor is
  * included here to enhance that feature.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Grande_Design
  * @subpackage Admin
  * @category   Users
  * @since      1.0.0
  */
 
  // Theme file namespace.
-namespace CC_Plugin\Classes;
+namespace Grande_Design\Classes;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) { exit; }

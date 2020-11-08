@@ -2,34 +2,34 @@
 /**
  * Content for the Inline Scripts help tab.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Grande_Design
  * @subpackage Admin\Partials\Help
  *
  * @since      1.0.0
  * @author     Greg Sweet <greg@ccdzine.com>
  */
 
-namespace CC_Plugin\Admin\Partials\Help;
+namespace Grande_Design\Admin\Partials\Help;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
 	die;
 } ?>
 <div>
-	<h3><?php _e( 'Advanced Custom Fields Notice', 'controlled-chaos-plugin' ); ?></h3>
+	<h3><?php _e( 'Advanced Custom Fields Notice', 'grande-design' ); ?></h3>
 	<?php echo sprintf(
 		'<p>%1s Advanced Custom Fields (ACF) %2s <a href="%3s" target="_blank">%4s</a> %5s <a href="%6s" target="_blank">%7s</a> %8s <a href="%9s" target="_blank">%10s</a></p>',
-		esc_html__( 'The tabs and the settings on this page are reproduced by different code within this plugin when the', 'controlled-chaos-plugin' ),
-		esc_html__( 'plugin is installed and activated. Specifically it needs to be the', 'controlled-chaos-plugin' ),
+		esc_html__( 'The tabs and the settings on this page are reproduced by different code within this plugin when the', 'grande-design' ),
+		esc_html__( 'plugin is installed and activated. Specifically it needs to be the', 'grande-design' ),
 		esc_url( 'https://www.advancedcustomfields.com/pro' ),
-		esc_html__( 'Pro edition', 'controlled-chaos-plugin' ),
-		esc_html__( 'of the plugin or the', 'controlled-chaos-plugin' ),
+		esc_html__( 'Pro edition', 'grande-design' ),
+		esc_html__( 'of the plugin or the', 'grande-design' ),
 		esc_url( 'https://wordpress.org/plugins/advanced-custom-fields/' ),
-		esc_html__( 'free version', 'controlled-chaos-plugin' ),
-		esc_html__( 'plus the', 'controlled-chaos-plugin' ),
+		esc_html__( 'free version', 'grande-design' ),
+		esc_html__( 'plus the', 'grande-design' ),
 		esc_url( 'https://www.advancedcustomfields.com/add-ons/options-page/' ),
-		esc_html__( 'Options Page addon.', 'controlled-chaos-plugin' )
+		esc_html__( 'Options Page addon.', 'grande-design' )
 	); ?>
-	<p><?php _e( 'One of the advantages of using ACF with the settings page is that the settings can be more easily added, editted, and rearranged than recoding this plugin using the WordPress/ClassicPress Settings API. It is far easier to implement complicated settings fields, and has a nicer user interface than the native WordPress/ClassicPress settings fields.', 'controlled-chaos-plugin' ); ?></p>
-	<p><?php _e( 'This plugin comes equipped with an ACF fields import tool that will import the ACF fields registered by this plugin so that they can be modified.', 'controlled-chaos-plugin' ); ?></p>
+	<p><?php _e( 'One of the advantages of using ACF with the settings page is that the settings can be more easily added, editted, and rearranged than recoding this plugin using the WordPress/ClassicPress Settings API. It is far easier to implement complicated settings fields, and has a nicer user interface than the native WordPress/ClassicPress settings fields.', 'grande-design' ); ?></p>
+	<p><?php _e( 'This plugin comes equipped with an ACF fields import tool that will import the ACF fields registered by this plugin so that they can be modified.', 'grande-design' ); ?></p>
 </div>

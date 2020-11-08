@@ -2,7 +2,7 @@
 /**
  * Register post types.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Grande_Design
  * @subpackage Includes\Post_Types_Taxes
  *
  * @since      1.0.0
@@ -11,7 +11,7 @@
  * @link       https://codex.wordpress.org/Function_Reference/register_post_type
  */
 
-namespace CC_Plugin\Includes\Post_Types_Taxes;
+namespace Grande_Design\Includes\Post_Types_Taxes;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
@@ -59,51 +59,51 @@ final class Post_Types_Register {
          * Renaming:
          * Search case "Custom Post" and replace with your post type capitalized name.
          * Search case "custom post" and replace with your post type lowercase name.
-         * Search case "ccp_post_type" and replace with your post type database name.
+         * Search case "ggd_post_type" and replace with your post type database name.
          * Search case "custom-posts" and replace with your post type archive permalink slug.
          */
 
         $labels = [
-            'name'                  => __( 'Custom Posts', 'controlled-chaos-plugin' ),
-            'singular_name'         => __( 'Custom Post', 'controlled-chaos-plugin' ),
-            'menu_name'             => __( 'Custom Posts', 'controlled-chaos-plugin' ),
-            'all_items'             => __( 'All Custom Posts', 'controlled-chaos-plugin' ),
-            'add_new'               => __( 'Add New', 'controlled-chaos-plugin' ),
-            'add_new_item'          => __( 'Add New Custom Post', 'controlled-chaos-plugin' ),
-            'edit_item'             => __( 'Edit Custom Post', 'controlled-chaos-plugin' ),
-            'new_item'              => __( 'New Custom Post', 'controlled-chaos-plugin' ),
-            'view_item'             => __( 'View Custom Post', 'controlled-chaos-plugin' ),
-            'view_items'            => __( 'View Custom Posts', 'controlled-chaos-plugin' ),
-            'search_items'          => __( 'Search Custom Posts', 'controlled-chaos-plugin' ),
-            'not_found'             => __( 'No Custom Posts Found', 'controlled-chaos-plugin' ),
-            'not_found_in_trash'    => __( 'No Custom Posts Found in Trash', 'controlled-chaos-plugin' ),
-            'parent_item_colon'     => __( 'Parent Custom Post', 'controlled-chaos-plugin' ),
-            'featured_image'        => __( 'Featured image for this custom post', 'controlled-chaos-plugin' ),
-            'set_featured_image'    => __( 'Set featured image for this custom post', 'controlled-chaos-plugin' ),
-            'remove_featured_image' => __( 'Remove featured image for this custom post', 'controlled-chaos-plugin' ),
-            'use_featured_image'    => __( 'Use as featured image for this custom post', 'controlled-chaos-plugin' ),
-            'archives'              => __( 'Custom Post archives', 'controlled-chaos-plugin' ),
-            'insert_into_item'      => __( 'Insert into Custom Post', 'controlled-chaos-plugin' ),
-            'uploaded_to_this_item' => __( 'Uploaded to this Custom Post', 'controlled-chaos-plugin' ),
-            'filter_items_list'     => __( 'Filter Custom Posts', 'controlled-chaos-plugin' ),
-            'items_list_navigation' => __( 'Custom Posts list navigation', 'controlled-chaos-plugin' ),
-            'items_list'            => __( 'Custom Posts List', 'controlled-chaos-plugin' ),
-            'attributes'            => __( 'Custom Post Attributes', 'controlled-chaos-plugin' ),
-            'parent_item_colon'     => __( 'Parent Custom Post', 'controlled-chaos-plugin' ),
+            'name'                  => __( 'Custom Posts', 'grande-design' ),
+            'singular_name'         => __( 'Custom Post', 'grande-design' ),
+            'menu_name'             => __( 'Custom Posts', 'grande-design' ),
+            'all_items'             => __( 'All Custom Posts', 'grande-design' ),
+            'add_new'               => __( 'Add New', 'grande-design' ),
+            'add_new_item'          => __( 'Add New Custom Post', 'grande-design' ),
+            'edit_item'             => __( 'Edit Custom Post', 'grande-design' ),
+            'new_item'              => __( 'New Custom Post', 'grande-design' ),
+            'view_item'             => __( 'View Custom Post', 'grande-design' ),
+            'view_items'            => __( 'View Custom Posts', 'grande-design' ),
+            'search_items'          => __( 'Search Custom Posts', 'grande-design' ),
+            'not_found'             => __( 'No Custom Posts Found', 'grande-design' ),
+            'not_found_in_trash'    => __( 'No Custom Posts Found in Trash', 'grande-design' ),
+            'parent_item_colon'     => __( 'Parent Custom Post', 'grande-design' ),
+            'featured_image'        => __( 'Featured image for this custom post', 'grande-design' ),
+            'set_featured_image'    => __( 'Set featured image for this custom post', 'grande-design' ),
+            'remove_featured_image' => __( 'Remove featured image for this custom post', 'grande-design' ),
+            'use_featured_image'    => __( 'Use as featured image for this custom post', 'grande-design' ),
+            'archives'              => __( 'Custom Post archives', 'grande-design' ),
+            'insert_into_item'      => __( 'Insert into Custom Post', 'grande-design' ),
+            'uploaded_to_this_item' => __( 'Uploaded to this Custom Post', 'grande-design' ),
+            'filter_items_list'     => __( 'Filter Custom Posts', 'grande-design' ),
+            'items_list_navigation' => __( 'Custom Posts list navigation', 'grande-design' ),
+            'items_list'            => __( 'Custom Posts List', 'grande-design' ),
+            'attributes'            => __( 'Custom Post Attributes', 'grande-design' ),
+            'parent_item_colon'     => __( 'Parent Custom Post', 'grande-design' ),
         ];
 
         // Apply a filter to labels for customization.
-        $labels = apply_filters( 'ccp_post_type_labels', $labels );
+        $labels = apply_filters( 'ggd_post_type_labels', $labels );
 
         $options = [
-            'label'               => __( 'Custom Posts', 'controlled-chaos-plugin' ),
+            'label'               => __( 'Custom Posts', 'grande-design' ),
             'labels'              => $labels,
-            'description'         => __( 'Custom post type description.', 'controlled-chaos-plugin' ),
+            'description'         => __( 'Custom post type description.', 'grande-design' ),
             'public'              => true,
             'publicly_queryable'  => true,
             'show_ui'             => true,
             'show_in_rest'        => false,
-            'rest_base'           => 'ccp_post_type_rest_api',
+            'rest_base'           => 'ggd_post_type_rest_api',
             'has_archive'         => true,
             'show_in_menu'        => true,
 			'exclude_from_search' => false,
@@ -115,7 +115,7 @@ final class Post_Types_Register {
                 'slug'       => 'custom-posts',
                 'with_front' => true
             ],
-            'query_var'           => 'ccp_post_type',
+            'query_var'           => 'ggd_post_type',
             'menu_position'       => 5,
             'menu_icon'           => 'dashicons-admin-post',
             'supports'            => [
@@ -134,12 +134,12 @@ final class Post_Types_Register {
             'taxonomies'          => [
                 'category',
                 'post_tag',
-                'ccp_taxonomy' // Change to your custom taxonomy name.
+                'ggd_taxonomy' // Change to your custom taxonomy name.
             ],
         ];
 
         // Apply a filter to arguments for customization.
-        $options = apply_filters( 'ccp_post_type_args', $options );
+        $options = apply_filters( 'ggd_post_type_args', $options );
 
         /**
          * Register the post type
@@ -147,7 +147,7 @@ final class Post_Types_Register {
          * Maximum 20 characters, cannot contain capital letters or spaces.
          */
         register_post_type(
-            'ccp_post_type',
+            'ggd_post_type',
             $options
         );
 
@@ -156,4 +156,4 @@ final class Post_Types_Register {
 }
 
 // Run the class.
-$ccp_post_types = new Post_Types_Register;
+$ggd_post_types = new Post_Types_Register;

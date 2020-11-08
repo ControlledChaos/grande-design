@@ -1,1 +1,1 @@
-# Controlled Chaos Plugin Admin
+# Grande Design Admin

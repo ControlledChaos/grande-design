@@ -2,14 +2,14 @@
 /**
  * Site settings page output.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Grande_Design
  * @subpackage Admin\Partials
  *
  * @since      1.0.0
  * @author     Greg Sweet <greg@ccdzine.com>
  */
 
-namespace CC_Plugin\Admin\Partials;
+namespace Grande_Design\Admin\Partials;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
@@ -40,47 +40,47 @@ $tabs = [
     // Dashboard tab.
     sprintf(
         '<a href="?page=%1s-settings&tab=dashboard" class="nav-tab %2s"><span class="dashicons dashicons-dashboard"></span> %3s</a>',
-        CCP_ADMIN_SLUG,
+        GGD_ADMIN_SLUG,
         $active_tab == 'dashboard' ? 'nav-tab-active' : '',
-        esc_html__( 'Dashboard', 'controlled-chaos-plugin' )
+        esc_html__( 'Dashboard', 'grande-design' )
     ),
 
     // Admin menu tab.
     sprintf(
         '<a href="?page=%1s-settings&tab=admin-menu" class="nav-tab %2s"><span class="dashicons dashicons-menu"></span> %3s</a>',
-        CCP_ADMIN_SLUG,
+        GGD_ADMIN_SLUG,
         $active_tab == 'admin-menu' ? 'nav-tab-active' : '',
-        esc_html__( 'Admin Menu', 'controlled-chaos-plugin' )
+        esc_html__( 'Admin Menu', 'grande-design' )
     ),
 
     // Admin pages tab.
     sprintf(
         '<a href="?page=%1s-settings&tab=admin-pages" class="nav-tab %2s"><span class="dashicons dashicons-admin-page"></span> %3s</a>',
-        CCP_ADMIN_SLUG,
+        GGD_ADMIN_SLUG,
         $active_tab == 'admin-pages' ? 'nav-tab-active' : '',
-        esc_html__( 'Admin Pages', 'controlled-chaos-plugin' )
+        esc_html__( 'Admin Pages', 'grande-design' )
     ),
 
     // Users tab.
     sprintf(
         '<a href="?page=%1s-settings&tab=users" class="nav-tab %2s"><span class="dashicons dashicons-admin-users"></span> %3s</a>',
-        CCP_ADMIN_SLUG,
+        GGD_ADMIN_SLUG,
         $active_tab == 'users' ? 'nav-tab-active' : '',
-        esc_html__( 'Site Users', 'controlled-chaos-plugin' )
+        esc_html__( 'Site Users', 'grande-design' )
     ),
 
     // Meta/SEO tab.
     sprintf(
         '<a href="?page=%1s-settings&tab=meta-seo" class="nav-tab %2s"><span class="dashicons dashicons-tag"></span> %3s</a>',
-        CCP_ADMIN_SLUG,
+        GGD_ADMIN_SLUG,
         $active_tab == 'meta-seo' ? 'nav-tab-active' : '',
-        esc_html__( 'Meta/SEO', 'controlled-chaos-plugin' )
+        esc_html__( 'Meta/SEO', 'grande-design' )
     )
 
 ];
 
 // Apply a filter to the tabs array for adding tabs.
-$page_tabs = apply_filters( 'ccp_tabs_site_settings', $tabs );
+$page_tabs = apply_filters( 'ggd_tabs_site_settings', $tabs );
 
 /**
  * Do settings section and fields by tab.
@@ -89,28 +89,28 @@ $page_tabs = apply_filters( 'ccp_tabs_site_settings', $tabs );
  * @return void
  */
 if ( 'dashboard' == $active_tab  ) {
-    $section = 'ccp-site-dashboard';
-    $fields  = 'ccp-site-dashboard';
+    $section = 'ggd-site-dashboard';
+    $fields  = 'ggd-site-dashboard';
 } elseif ( 'admin-menu' == $active_tab ) {
-    $section = 'ccp-site-admin-menu';
-    $fields  = 'ccp-site-admin-menu';
+    $section = 'ggd-site-admin-menu';
+    $fields  = 'ggd-site-admin-menu';
 } elseif ( 'admin-pages' == $active_tab ) {
-    $section = 'ccp-site-admin-pages';
-    $fields  = 'ccp-site-admin-pages';
+    $section = 'ggd-site-admin-pages';
+    $fields  = 'ggd-site-admin-pages';
 } elseif ( 'users' == $active_tab ) {
-    $section = 'ccp-site-users';
-    $fields  = 'ccp-site-users';
+    $section = 'ggd-site-users';
+    $fields  = 'ggd-site-users';
 } elseif ( 'meta-seo' == $active_tab ) {
-    $section = 'ccp-site-meta-seo';
-    $fields  = 'ccp-site-meta-seo';
+    $section = 'ggd-site-meta-seo';
+    $fields  = 'ggd-site-meta-seo';
 } else {
     $section = null;
     $fields  = null;
 }
 
 // Apply filters to the sections and fields for new tabs.
-$do_section = apply_filters( 'ccp_section_site_settings', $section );
-$do_fields  = apply_filters( 'ccp_fields_site_settings', $fields );
+$do_section = apply_filters( 'ggd_section_site_settings', $section );
+$do_fields  = apply_filters( 'ggd_fields_site_settings', $fields );
 
 /**
  * Conditional save button text by tab.
@@ -119,30 +119,30 @@ $do_fields  = apply_filters( 'ccp_fields_site_settings', $fields );
  * @return string Returns the button label.
  */
 if ( 'dashboard' == $active_tab  ) {
-    $save = __( 'Save Dashboard', 'controlled-chaos-plugin' );
+    $save = __( 'Save Dashboard', 'grande-design' );
 } elseif ( 'admin-menu' == $active_tab ) {
-    $save = __( 'Save Menu', 'controlled-chaos-plugin' );
+    $save = __( 'Save Menu', 'grande-design' );
 } elseif ( 'admin-pages' == $active_tab ) {
-    $save = __( 'Save Pages', 'controlled-chaos-plugin' );
+    $save = __( 'Save Pages', 'grande-design' );
 } elseif ( 'users' == $active_tab ) {
-    $save = __( 'Save Users', 'controlled-chaos-plugin' );
+    $save = __( 'Save Users', 'grande-design' );
 } elseif ( 'meta-seo' == $active_tab ) {
-    $save = __( 'Save Meta', 'controlled-chaos-plugin' );
+    $save = __( 'Save Meta', 'grande-design' );
 } else {
-    $save = __( 'Save Settings', 'controlled-chaos-plugin' );
+    $save = __( 'Save Settings', 'grande-design' );
 }
 
 // Apply a filter for new tabs added by another plugin or from a theme.
-$button = apply_filters( 'ccp_save_site_settings', $save );
+$button = apply_filters( 'ggd_save_site_settings', $save );
 
 ?>
 <div class="wrap">
 	<?php echo sprintf(
         '<h1 class="wp-heading-inline">%1s %2s</h1>',
         get_bloginfo( 'name' ),
-        esc_html__( 'Settings', 'controlled-chaos-plugin' )
+        esc_html__( 'Settings', 'grande-design' )
     ); ?>
-    <p class="description"><?php esc_html_e( 'Customize the way WordPress is used.', 'controlled-chaos-plugin' ); ?></p>
+    <p class="description"><?php esc_html_e( 'Customize the way WordPress is used.', 'grande-design' ); ?></p>
     <hr class="wp-header-end">
     <h2 class="nav-tab-wrapper">
 		<?php echo implode( $page_tabs ); ?>

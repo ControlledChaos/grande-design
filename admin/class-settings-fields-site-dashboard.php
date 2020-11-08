@@ -2,16 +2,16 @@
 /**
  * Settings for the Dashboard tab on the Site Settings page.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Grande_Design
  * @subpackage Admin
  *
  * @since      1.0.0
  * @author     Greg Sweet <greg@ccdzine.com>
  */
 
-namespace CC_Plugin\Admin\Partials;
+namespace Grande_Design\Admin\Partials;
 
-use CC_Plugin\Admin\Partials\Field_Callbacks\Dashboard_Callbacks as Callbacks;
+use Grande_Design\Admin\Partials\Field_Callbacks\Dashboard_Callbacks as Callbacks;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
@@ -84,7 +84,7 @@ class Settings_Fields_Site_Dashboard {
 	private function dependencies() {
 
 		// Callbacks for the Dashboard tab.
-		require CCP_PATH . 'admin/partials/field-callbacks/class-dashboard-callbacks.php';
+		require GGD_PATH . 'admin/partials/field-callbacks/class-dashboard-callbacks.php';
 
 	}
 
@@ -101,130 +101,130 @@ class Settings_Fields_Site_Dashboard {
 
 		// Dashboard settings section.
 		add_settings_section(
-			'ccp-site-dashboard',
-			__( 'Dashboard Settings', 'controlled-chaos-plugin' ),
+			'ggd-site-dashboard',
+			__( 'Dashboard Settings', 'grande-design' ),
 			[],
-			'ccp-site-dashboard'
+			'ggd-site-dashboard'
 		);
 
 		// Use the custom welcome panel.
 		add_settings_field(
-			'ccp_custom_welcome',
-			__( 'Custom Welcome', 'controlled-chaos-plugin' ),
+			'ggd_custom_welcome',
+			__( 'Custom Welcome', 'grande-design' ),
 			[ Callbacks::instance(), 'custom_welcome' ],
-			'ccp-site-dashboard',
-			'ccp-site-dashboard',
-			[ esc_html__( 'Use the custom Welcome panel on the Dashboard', 'controlled-chaos-plugin' ) ]
+			'ggd-site-dashboard',
+			'ggd-site-dashboard',
+			[ esc_html__( 'Use the custom Welcome panel on the Dashboard', 'grande-design' ) ]
 		);
 
 		register_setting(
-			'ccp-site-dashboard',
-			'ccp_custom_welcome'
+			'ggd-site-dashboard',
+			'ggd_custom_welcome'
 		);
 
 		// Hide the try Gutenberg panel.
 		add_settings_field(
-			'ccp_hide_try_gutenberg',
-			__( 'Hide Try Gutenberg', 'controlled-chaos-plugin' ),
+			'ggd_hide_try_gutenberg',
+			__( 'Hide Try Gutenberg', 'grande-design' ),
 			[ Callbacks::instance(), 'hide_try_gutenberg' ],
-			'ccp-site-dashboard',
-			'ccp-site-dashboard',
-			[ esc_html__( 'Hide the "Try Gutenberg" panel on the Dashboard', 'controlled-chaos-plugin' ) ]
+			'ggd-site-dashboard',
+			'ggd-site-dashboard',
+			[ esc_html__( 'Hide the "Try Gutenberg" panel on the Dashboard', 'grande-design' ) ]
 		);
 
 		register_setting(
-			'ccp-site-dashboard',
-			'ccp_hide_try_gutenberg'
+			'ggd-site-dashboard',
+			'ggd_hide_try_gutenberg'
 		);
 
 		// Hide the welcome panel.
 		add_settings_field(
-			'ccp_hide_welcome',
-			__( 'Hide Welcome', 'controlled-chaos-plugin' ),
+			'ggd_hide_welcome',
+			__( 'Hide Welcome', 'grande-design' ),
 			[ Callbacks::instance(), 'hide_welcome' ],
-			'ccp-site-dashboard',
-			'ccp-site-dashboard',
-			[ esc_html__( 'Hide the Welcome panel on the Dashboard', 'controlled-chaos-plugin' ) ]
+			'ggd-site-dashboard',
+			'ggd-site-dashboard',
+			[ esc_html__( 'Hide the Welcome panel on the Dashboard', 'grande-design' ) ]
 		);
 
 		register_setting(
-			'ccp-site-dashboard',
-			'ccp_hide_welcome'
+			'ggd-site-dashboard',
+			'ggd_hide_welcome'
 		);
 
 		// Hide the welcome panel dismiss button.
 		add_settings_field(
-			'ccp_remove_welcome_dismiss',
-			__( 'Remove Welcome Dismiss', 'controlled-chaos-plugin' ),
+			'ggd_remove_welcome_dismiss',
+			__( 'Remove Welcome Dismiss', 'grande-design' ),
 			[ Callbacks::instance(), 'remove_welcome_dismiss' ],
-			'ccp-site-dashboard',
-			'ccp-site-dashboard',
-			[ esc_html__( 'Remove the Welcome panel dismiss button', 'controlled-chaos-plugin' ) ]
+			'ggd-site-dashboard',
+			'ggd-site-dashboard',
+			[ esc_html__( 'Remove the Welcome panel dismiss button', 'grande-design' ) ]
 		);
 
 		register_setting(
-			'ccp-site-dashboard',
-			'ccp_remove_welcome_dismiss'
+			'ggd-site-dashboard',
+			'ggd_remove_welcome_dismiss'
 		);
 
 		// Hide WordPress News widget.
 		add_settings_field(
-			'ccp_hide_wp_news',
-			__( 'Hide WordPress News', 'controlled-chaos-plugin' ),
+			'ggd_hide_wp_news',
+			__( 'Hide WordPress News', 'grande-design' ),
 			[ Callbacks::instance(), 'hide_wp_news' ],
-			'ccp-site-dashboard',
-			'ccp-site-dashboard',
-			[ esc_html__( 'Hide the WordPress News widget on the Dashboard', 'controlled-chaos-plugin' ) ]
+			'ggd-site-dashboard',
+			'ggd-site-dashboard',
+			[ esc_html__( 'Hide the WordPress News widget on the Dashboard', 'grande-design' ) ]
 		);
 
 		register_setting(
-			'ccp-site-dashboard',
-			'ccp_hide_wp_news'
+			'ggd-site-dashboard',
+			'ggd_hide_wp_news'
 		);
 
 		// Hide Quick Draft (QuickPress) widget.
 		add_settings_field(
-			'ccp_hide_quickpress',
-			__( 'Hide Quick Draft', 'controlled-chaos-plugin' ),
+			'ggd_hide_quickpress',
+			__( 'Hide Quick Draft', 'grande-design' ),
 			[ Callbacks::instance(), 'hide_quickpress' ],
-			'ccp-site-dashboard',
-			'ccp-site-dashboard',
-			[ esc_html__( 'Hide the Quick Draft widget on the Dashboard', 'controlled-chaos-plugin' ) ]
+			'ggd-site-dashboard',
+			'ggd-site-dashboard',
+			[ esc_html__( 'Hide the Quick Draft widget on the Dashboard', 'grande-design' ) ]
 		);
 
 		register_setting(
-			'ccp-site-dashboard',
-			'ccp_hide_quickpress'
+			'ggd-site-dashboard',
+			'ggd_hide_quickpress'
 		);
 
 		// Hide At a Glance widget.
 		add_settings_field(
-			'ccp_hide_at_glance',
-			__( 'Hide At a Glance', 'controlled-chaos-plugin' ),
+			'ggd_hide_at_glance',
+			__( 'Hide At a Glance', 'grande-design' ),
 			[ Callbacks::instance(), 'hide_at_glance' ],
-			'ccp-site-dashboard',
-			'ccp-site-dashboard',
-			[ esc_html__( 'Hide the At a Glance widget on the Dashboard', 'controlled-chaos-plugin' ) ]
+			'ggd-site-dashboard',
+			'ggd-site-dashboard',
+			[ esc_html__( 'Hide the At a Glance widget on the Dashboard', 'grande-design' ) ]
 		);
 
 		register_setting(
-			'ccp-site-dashboard',
-			'ccp_hide_at_glance'
+			'ggd-site-dashboard',
+			'ggd_hide_at_glance'
 		);
 
 		// Hide Activity widget.
 		add_settings_field(
-			'ccp_hide_activity',
-			__( 'Hide Activity', 'controlled-chaos-plugin' ),
+			'ggd_hide_activity',
+			__( 'Hide Activity', 'grande-design' ),
 			[ Callbacks::instance(), 'hide_activity' ],
-			'ccp-site-dashboard',
-			'ccp-site-dashboard',
-			[ esc_html__( 'Hide the Activity widget on the Dashboard', 'controlled-chaos-plugin' ) ]
+			'ggd-site-dashboard',
+			'ggd-site-dashboard',
+			[ esc_html__( 'Hide the Activity widget on the Dashboard', 'grande-design' ) ]
 		);
 
 		register_setting(
-			'ccp-site-dashboard',
-			'ccp_hide_activity'
+			'ggd-site-dashboard',
+			'ggd_hide_activity'
 		);
 
 	}
@@ -238,11 +238,11 @@ class Settings_Fields_Site_Dashboard {
  * @access public
  * @return object Returns an instance of the class.
  */
-function ccp_settings_fields_site_dashboard() {
+function ggd_settings_fields_site_dashboard() {
 
 	return Settings_Fields_Site_Dashboard::instance();
 
 }
 
 // Run an instance of the class.
-ccp_settings_fields_site_dashboard();
+ggd_settings_fields_site_dashboard();

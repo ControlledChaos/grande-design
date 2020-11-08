@@ -1,1 +1,1 @@
-# Controlled Chaos Plugin Frontend
+# Grande Design Frontend
