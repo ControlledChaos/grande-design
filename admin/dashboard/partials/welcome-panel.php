@@ -20,122 +20,68 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-// Get the current user name for the greeting.
-$current_user = wp_get_current_user();
-$user_name    = $current_user->display_name;
+$contact_page = get_page_by_path( 'contact' );
+$contact_id   = $contact_page->ID; ?>
 
-// Add a filterable subheading.
-$subheading = sprintf(
-	'<h3>%1s %2s %3s.</h3>',
-	esc_html__( 'This is your custom', 'grande-design' ),
-	get_bloginfo( 'name' ),
-	esc_html__( 'welcome panel', 'grande-design' )
-);
-$subheading = apply_filters( 'ggd_welcome_subheading', $subheading );
-
-// Add a filterable description.
-$about_desc = apply_filters( 'ggd_welcome_about', __( 'Put your welcome message here.', 'grande-design' ) );
-
-?>
-<?php do_action( 'ggd_before_welcome_panel_content' ); ?>
-<div class="welcome-panel-content custom">
-	<?php do_action( 'ggd_welcome_panel_content_before' ); ?>
-
-	<?php echo sprintf(
-		'<h2 class="welcome-panel-title">%1s %2s.</h2>',
-		esc_html__( 'Welcome,', 'grande-design' ),
-		$user_name
-	); ?>
-	<p class="welcome-panel-description"><?php echo $about_desc; ?></p>
-	<?php echo $subheading; ?>
-	<p><?php _e( 'Use this to provide handy links to manage content, informational widgets, or maybe an instructional video.' ); ?></p>
-	<p><?php _e( 'No CSS has been applied to this welcome panel. Add styles as necessary for your project.' ); ?></p>
-
-	<div class="welcome-panel-column-container">
-		<?php do_action( 'ggd_welcome_panel_column_container_before' ); ?>
-
-		<div class="welcome-panel-column">
-			<?php do_action( 'ggd_welcome_panel_column_first_before' ); ?>
-
-				<?php if ( is_active_sidebar( 'ggd_welcome_widget_first' ) ) {
-
-					dynamic_sidebar( 'ggd_welcome_widget_first' );
-
-				} else {
-
-					$placeholder = sprintf(
-						'<h3>%1s</h3>',
-						esc_html( 'Column One', 'grande-design' )
-					);
-					$placeholder .= sprintf(
-						'<p><a href="%1s">%2s</a> %3s.</p>',
-						admin_url( 'widgets.php' ),
-						__( 'Add a widget', 'grande-design' ),
-						__( 'to this area', 'grande-design' )
-					);
-
-					echo $placeholder;
-
-				} ?>
-
-			<?php do_action( 'ggd_welcome_panel_column_first_after' ); ?>
-		</div>
-		<div class="welcome-panel-column">
-			<?php do_action( 'ggd_welcome_panel_column_second_before' ); ?>
-
-			<?php if ( is_active_sidebar( 'ggd_welcome_widget_second' ) ) {
-
-					dynamic_sidebar( 'ggd_welcome_widget_second' );
-
-				} else {
-
-					$placeholder = sprintf(
-						'<h3>%1s</h3>',
-						esc_html( 'Column Two', 'grande-design' )
-					);
-					$placeholder .= sprintf(
-						'<p><a href="%1s">%2s</a> %3s.</p>',
-						admin_url( 'widgets.php' ),
-						__( 'Add a widget', 'grande-design' ),
-						__( 'to this area', 'grande-design' )
-					);
-
-					echo $placeholder;
-
-				} ?>
-
-			<?php do_action( 'ggd_welcome_panel_column_second_after' ); ?>
-		</div>
-		<div class="welcome-panel-column welcome-panel-last">
-			<?php do_action( 'ggd_welcome_panel_column_last_before' ); ?>
-
-			<?php if ( is_active_sidebar( 'ggd_welcome_widget_last' ) ) {
-
-					dynamic_sidebar( 'ggd_welcome_widget_last' );
-
-				} else {
-
-					$placeholder = sprintf(
-						'<h3>%1s</h3>',
-						esc_html( 'Column Three', 'grande-design' )
-					);
-					$placeholder .= sprintf(
-						'<p><a href="%1s">%2s</a> %3s.</p>',
-						admin_url( 'widgets.php' ),
-						__( 'Add a widget', 'grande-design' ),
-						__( 'to this area', 'grande-design' )
-					);
-
-					echo $placeholder;
-
-				} ?>
-
-			<?php do_action( 'ggd_welcome_panel_column_last_after' ); ?>
-		</div>
-
-		<?php do_action( 'ggd_welcome_panel_column_container_after' ); ?>
-	</div>
-
-	<?php do_action( 'ggd_welcome_panel_content_after' ); ?>
+<div class="abcd-dashboard-summary">
+	<?php wp_dashboard_right_now(); ?>
 </div>
-<?php do_action( 'ggd_after_welcome_panel_content' ); ?>
+<div class="abcd-dashboard-post-managment">
+	<header class="abcd-dashboard-section-header">
+		<h3><?php _e( 'Manage Your Portfolio', 'grande-design' ); ?></h3>
+	</header>
+	<ul class="abcd-dashboard-post-type-actions">
+		<li>
+			<h4><?php _e( 'Projects', 'grande-design' ); ?></h4>
+			<div class="abcd-dashboard-post-type-actions-icon features-icon"><span class="dashicons dashicons-art"></span></div>
+			<p>
+				<a href="<?php echo admin_url( 'post-new.php?post_type=projects' ); ?>"><?php _e( 'Add New', 'grande-design' ); ?></a>
+				<a href="<?php echo admin_url( 'edit.php?post_type=projects' ); ?>"><?php _e( 'View List', 'grande-design' ); ?></a>
+			</p>
+		</li>
+		<li>
+			<h4><?php _e( 'Images', 'grande-design' ); ?></h4>
+			<div class="abcd-dashboard-content-actions-icon front-icon"><span class="dashicons dashicons-format-gallery"></span></div>
+			<p>
+				<a href="<?php echo admin_url( 'media-new.php' ); ?>"><?php _e( 'Add New', 'grande-design' ); ?></a>
+				<a href="<?php echo admin_url( 'upload.php' ); ?>"><?php _e( 'Manage', 'grande-design' ); ?></a>
+			</p>
+		</li>
+	</ul>
+</div>
+<div class="abcd-dashboard-content-managment">
+	<header class="abcd-dashboard-section-header">
+		<h3><?php _e( 'Manage Your Content', 'grande-design' ); ?></h3>
+	</header>
+	<ul class="abcd-dashboard-content-actions">
+		<li>
+			<h4><?php _e( 'Front Page', 'grande-design' ); ?></h4>
+			<div class="abcd-dashboard-content-actions-icon front-icon"><span class="dashicons dashicons-admin-home"></span></div>
+			<p>
+				<a href="<?php echo admin_url( 'post.php?post=' . get_option( 'page_on_front' ) . '&action=edit' ); ?>"><?php _e( 'Manage Slides', 'grande-design' ); ?></a>
+			</p>
+		</li>
+		<li>
+			<h4><?php _e( 'Snippets', 'grande-design' ); ?></h4>
+			<div class="abcd-dashboard-content-actions-icon snippets-icon"><span class="dashicons dashicons-art"></span></div>
+			<p>
+				<a href="<?php echo admin_url( 'post-new.php?post_type=bloom_snippets' ); ?>"><?php _e( 'Add New', 'grande-design' ); ?></a>
+				<a href="<?php echo admin_url( 'edit.php?post_type=bloom_snippets' ); ?>"><?php _e( 'View List', 'grande-design' ); ?></a>
+			</p>
+		</li>
+		<li>
+			<h4><?php _e( 'Gallery', 'grande-design' ); ?></h4>
+			<div class="abcd-dashboard-content-actions-icon gallery-icon"><span class="dashicons dashicons-format-gallery"></span></div>
+			<p>
+				<a href="<?php echo admin_url( 'post.php?post=' . $gallery_id . '&action=edit' ); ?>"><?php _e( 'Manage Images', 'grande-design' ); ?></a>
+			</p>
+		</li>
+		<li>
+			<h4><?php _e( 'Contact', 'grande-design' ); ?></h4>
+			<div class="abcd-dashboard-content-actions-icon contact-icon"><span class="dashicons dashicons-email"></span></div>
+			<p>
+				<a href="<?php echo admin_url( 'post.php?post=' . $contact_id . '&action=edit' ); ?>"><?php _e( 'Manage Info', 'grande-design' ); ?></a>
+			</p>
+		</li>
+	</ul>
+</div>
