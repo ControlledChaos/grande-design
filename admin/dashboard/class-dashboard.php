@@ -70,7 +70,7 @@ class Dashboard {
 		add_action( 'admin_head', [ $this, 'remove_help' ] );
 
 		// Add contextual help content.
-		add_action( 'admin_head', [ $this, 'add_help' ] );
+		// add_action( 'admin_head', [ $this, 'add_help' ] );
 
 		// Enqueue dashboard stylesheet.
 		add_action( 'admin_enqueue_scripts', [ $this, 'styles' ] );

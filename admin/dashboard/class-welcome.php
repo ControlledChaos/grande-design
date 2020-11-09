@@ -63,39 +63,13 @@ class Welcome {
 		 *
 		 * @since 1.0.0
 		 */
-
-		// If ACF is active, get the field from the ACF options page.
-		if ( ggd_acf_options() ) {
-			$dismiss = get_field( 'ggd_remove_welcome_dismiss', 'option' );
-
-		// If ACF is not active, get the field from the WordPress/ClassicPress options page.
-		} else {
-			$dismiss = get_option( 'ggd_remove_welcome_dismiss' );
-		}
-
-		if ( $dismiss ) {
-			add_action( 'admin_head', [ $this, 'dismiss' ] );
-		}
+		add_action( 'admin_head', [ $this, 'dismiss' ] );
 
 		/**
 		 * Use the custom Welcome panel if option selected.
 		 */
-
-		// If ACF is active, get the field from the ACF options page.
-		if ( ggd_acf_options() ) {
-			$welcome = get_field( 'ggd_custom_welcome', 'option' );
-		} else {
-			$welcome = get_option( 'ggd_custom_welcome' );
-		}
-
-		if ( $welcome ) {
-			remove_action( 'welcome_panel', 'wp_welcome_panel' );
-			add_action( 'welcome_panel', [ $this, 'welcome_panel' ], 25 );
-
-			// Register the welcome panel areas.
-			add_action( 'widgets_init', [ $this, 'widget_areas' ], 25 );
-		}
-
+		remove_action( 'welcome_panel', 'wp_welcome_panel' );
+		add_action( 'welcome_panel', [ $this, 'welcome_panel' ], 25 );
 	}
 
 	/**
@@ -123,48 +97,6 @@ class Welcome {
 			';
 
 		echo $dismiss;
-
-	}
-
-	/**
-	 * Register the welcome panel areas.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return void
-	 */
-	public function widget_areas() {
-
-		register_sidebar( [
-			'name'          => __( 'Welcome Panel - First Area', 'grande-design' ),
-			'id'            => 'ggd_welcome_widget_first',
-			'description'   => __( '', 'grande-design' ),
-			'before_widget' => '<div id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</div>',
-			'before_title'  => '<h3>',
-			'after_title'   => '</h3>',
-		] );
-
-		register_sidebar( [
-			'name'          => __( 'Welcome Panel - Second Area', 'grande-design' ),
-			'id'            => 'ggd_welcome_widget_second',
-			'description'   => __( '', 'grande-design' ),
-			'before_widget' => '<div id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</div>',
-			'before_title'  => '<h3>',
-			'after_title'   => '</h3>',
-		] );
-
-		register_sidebar( [
-			'name'          => __( 'Welcome Panel - Third Area', 'grande-design' ),
-			'id'            => 'ggd_welcome_widget_last',
-			'description'   => __( '', 'grande-design' ),
-			'before_widget' => '<div id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</div>',
-			'before_title'  => '<h3>',
-			'after_title'   => '</h3>',
-		] );
-
 	}
 
 	/**
@@ -183,7 +115,6 @@ class Welcome {
 		} else {
 			include_once GGD_PATH . 'admin/dashboard/partials/welcome-panel.php';
 		}
-
 	}
 
 	/**
@@ -202,9 +133,7 @@ class Welcome {
         if ( $screen->id == 'dashboard' ) {
             wp_enqueue_style( GGD_ADMIN_SLUG . '-welcome', GGD_URL .  'assets/css/welcome.min.css', [], null, 'screen' );
         }
-
 	}
-
 }
 
 /**
@@ -215,9 +144,7 @@ class Welcome {
  * @return object Returns an instance of the class.
  */
 function ggd_welcome() {
-
 	return Welcome::instance();
-
 }
 
 // Run an instance of the class.
