@@ -59,7 +59,11 @@ class Post_Types_Taxes {
 	 * @return void Constructor method is empty.
 	 *              Change to `self` if used.
 	 */
-	public function __construct() {}
+	public function __construct() {
+
+		// Frontend menus.
+		add_filter( 'wp_get_nav_menu_items', [ $this, 'frontend_menus' ], 10, 3 );
+	}
 
 	/**
      * Class dependency files.
@@ -90,9 +94,36 @@ class Post_Types_Taxes {
 
 		// Capability to add custom taxonomy templates.
 		require_once GGD_PATH . 'includes/post-types-taxes/class-taxonomy-templates.php';
-
 	}
 
+	/**
+	 * Frontend menu
+	 *
+	 * Modify the output of menus to reword post type & taxonomy labels.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function frontend_menus( $items, $menu, $args ) {
+
+		foreach ( $items as &$item ) {
+
+			if ( $item->type != 'custom' ) {
+				continue;
+			}
+
+			if ( get_query_var( 'post_type' ) == 'project' && is_singular( 'project' ) && $item->title == 'Portfolio' ) {
+				$item->classes []= 'current-menu-item current-tax-ancestor';
+			}
+
+			if ( is_tax() && $item->title == 'Portfolio' ) {
+				$item->classes []= 'current-menu-item current-tax-archive';
+			}
+		}
+
+		return $items;
+	}
 }
 
 /**

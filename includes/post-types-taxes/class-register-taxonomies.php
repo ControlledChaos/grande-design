@@ -1,14 +1,12 @@
 <?php
 /**
- * Register taxonomies.
+ * Register priority.
  *
  * @package    Grande_Design
  * @subpackage Includes\Post_Types_Taxes
  *
  * @since      1.0.0
  * @author     Greg Sweet <greg@ccdzine.com>
- *
- * @link       https://codex.wordpress.org/Function_Reference/register_taxonomy
  */
 
 namespace Grande_Design\Includes\Post_Types_Taxes;
@@ -19,7 +17,7 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 /**
- * Register taxonomies.
+ * Register priority.
  *
  * @since  1.0.0
  * @access public
@@ -35,13 +33,13 @@ final class Taxes_Register {
 	 */
 	public function __construct() {
 
-        // Register custom taxonomies.
+        // Register custom priority.
 		add_action( 'init', [ $this, 'register' ] );
 
 	}
 
     /**
-     * Register custom taxonomies.
+     * Register custom priority.
      *
      * @since  1.0.0
 	 * @access public
@@ -50,55 +48,49 @@ final class Taxes_Register {
     public function register() {
 
         /**
-         * Taxonomy: Sample taxonomy (Taxonomy).
-         *
-         * Renaming:
-         * Search case "Taxonomy" and replace with your post type singular name.
-         * Search case "Taxonomies" and replace with your post type plural name.
-         * Search case "ggd_taxonomy" and replace with your taxonomy database name.
-         * Search case "taxonomies" and replace with your taxonomy permalink slug.
+         * Taxonomy: Project Category
          */
 
         $labels = [
-            'name'                       => __( 'Taxonomies', 'grande-design' ),
-            'singular_name'              => __( 'Taxonomy', 'grande-design' ),
-            'menu_name'                  => __( 'Taxonomy', 'grande-design' ),
-            'all_items'                  => __( 'All Taxonomies', 'grande-design' ),
-            'edit_item'                  => __( 'Edit Taxonomy', 'grande-design' ),
-            'view_item'                  => __( 'View Taxonomy', 'grande-design' ),
-            'update_item'                => __( 'Update Taxonomy', 'grande-design' ),
-            'add_new_item'               => __( 'Add New Taxonomy', 'grande-design' ),
-            'new_item_name'              => __( 'New Taxonomy', 'grande-design' ),
-            'parent_item'                => __( 'Parent Taxonomy', 'grande-design' ),
-            'parent_item_colon'          => __( 'Parent Taxonomy', 'grande-design' ),
-            'popular_items'              => __( 'Popular Taxonomies', 'grande-design' ),
-            'separate_items_with_commas' => __( 'Separate Taxonomies with commas', 'grande-design' ),
-            'add_or_remove_items'        => __( 'Add or Remove Taxonomies', 'grande-design' ),
-            'choose_from_most_used'      => __( 'Choose from the most used Taxonomies', 'grande-design' ),
-            'not_found'                  => __( 'No Taxonomies Found', 'grande-design' ),
-            'no_terms'                   => __( 'No Taxonomies', 'grande-design' ),
-            'items_list_navigation'      => __( 'Taxonomies List Navigation', 'grande-design' ),
-            'items_list'                 => __( 'Taxonomies List', 'grande-design' )
+            'name'                       => __( 'Project Categories', 'grande-design' ),
+            'singular_name'              => __( 'Project Category', 'grande-design' ),
+            'menu_name'                  => __( 'Project Category', 'grande-design' ),
+            'all_items'                  => __( 'All Project Categories', 'grande-design' ),
+            'edit_item'                  => __( 'Edit Project Category', 'grande-design' ),
+            'view_item'                  => __( 'View Project Category', 'grande-design' ),
+            'update_item'                => __( 'Update Project Category', 'grande-design' ),
+            'add_new_item'               => __( 'Add New Project Category', 'grande-design' ),
+            'new_item_name'              => __( 'New Project Category', 'grande-design' ),
+            'parent_item'                => __( 'Parent Project Category', 'grande-design' ),
+            'parent_item_colon'          => __( 'Parent Project Category', 'grande-design' ),
+            'popular_items'              => __( 'Popular Project Categories', 'grande-design' ),
+            'separate_items_with_commas' => __( 'Separate Project Categories with commas', 'grande-design' ),
+            'add_or_remove_items'        => __( 'Add or Remove Project Categories', 'grande-design' ),
+            'choose_from_most_used'      => __( 'Choose from the most used Project Categories', 'grande-design' ),
+            'not_found'                  => __( 'No Project Categories Found', 'grande-design' ),
+            'no_terms'                   => __( 'No Project Categories', 'grande-design' ),
+            'items_list_navigation'      => __( 'Project Categories List Navigation', 'grande-design' ),
+            'items_list'                 => __( 'Project Categories List', 'grande-design' )
         ];
 
         $options = [
-            'label'                 => __( 'Taxonomies', 'grande-design' ),
+            'label'                 => __( 'Project Categories', 'grande-design' ),
             'labels'                => $labels,
             'public'                => true,
             'hierarchical'          => false,
-            'label'                 => 'Taxonomies',
+            'label'                 => 'Project Categories',
             'show_ui'               => true,
             'show_in_menu'          => true,
             'show_in_nav_menus'     => true,
             'query_var'             => true,
             'rewrite'               => [
-                'slug'         => 'taxonomies',
+                'slug'         => 'priority',
                 'with_front'   => true,
                 'hierarchical' => false,
             ],
             'show_admin_column'     => true,
             'show_in_rest'          => false,
-			'rest_base'             => 'taxonomies',
+			'rest_base'             => 'priority',
 			'rest_controller_class' => 'WP_REST_Terms_Controller',
             'show_in_quick_edit'    => true
         ];
@@ -107,9 +99,9 @@ final class Taxes_Register {
          * Register the taxonomy
          */
         register_taxonomy(
-            'ggd_taxonomy',
+            'priority',
             [
-                'ggd_post_type' // Change to your post type name.
+                'project'
             ],
             $options
         );
