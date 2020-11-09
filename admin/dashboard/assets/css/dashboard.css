@@ -12,12 +12,33 @@
   font-size: 1.25em;
 }
 
+#dashboard-widgets-wrap {
+  display: none;
+}
+
 .grande-dashboard-summary ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   margin-bottom: 0;
 }
 
 .grande-dashboard-summary ul li {
+  margin-right: 1em;
   line-height: 1;
+}
+
+.grande-dashboard-post-managment {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: solid 1px #ccc;
 }
 
 .grande-dashboard-actions-list {
@@ -76,6 +97,17 @@
 }
 
 .grande-dashboard-actions-list li .grande-dashboard-icon {
-  margin-top: 0.5rem;
-  padding: 0.5rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 1.5rem;
+}
+
+.grande-dashboard-actions-list li .grande-dashboard-icon > span {
+  display: block;
+  width: auto;
+  height: auto;
+}
+
+.grande-dashboard-actions-list li .grande-dashboard-icon .dashicons {
+  font-size: 2.5rem;
 }

@@ -97,6 +97,10 @@ class Admin_Menu {
 	 */
 	public function hide() {
 
+		// Romove blog links.
+		remove_menu_page( 'edit.php' );
+		remove_menu_page( 'edit-comments.php' );
+
 		// Remove ClassicPress Security page.
 		remove_menu_page( 'security.php' );
 
@@ -189,7 +193,7 @@ class Admin_Menu {
 
 				// Unset Menus if it is found.
 				if ( $item[2] === 'nav-menus.php' ) {
-					unset($submenu['themes.php'][$key] );
+					unset( $submenu['themes.php'][$key] );
 				}
 
 				// Unset Widgets if it is found.

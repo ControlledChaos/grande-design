@@ -54,7 +54,7 @@ final class Taxes_Register {
         $labels = [
             'name'                       => __( 'Project Categories', 'grande-design' ),
             'singular_name'              => __( 'Project Category', 'grande-design' ),
-            'menu_name'                  => __( 'Project Category', 'grande-design' ),
+            'menu_name'                  => __( 'Categories', 'grande-design' ),
             'all_items'                  => __( 'All Project Categories', 'grande-design' ),
             'edit_item'                  => __( 'Edit Project Category', 'grande-design' ),
             'view_item'                  => __( 'View Project Category', 'grande-design' ),

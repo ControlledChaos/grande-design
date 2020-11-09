@@ -116,7 +116,7 @@ final class Post_Types_Register {
 				'excerpt'
 			],
 			'taxonomies'          => [
-				'post_tag',
+				// May use tags. 'post_tag',
 				'priority'
 			],
 		];
