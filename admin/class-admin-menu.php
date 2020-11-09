@@ -97,6 +97,9 @@ class Admin_Menu {
 	 */
 	public function hide() {
 
+		// Remove ClassicPress Security page.
+		remove_menu_page( 'security.php' );
+
 		/**
 		 * If Advanced Custom Fields is active.
 		 */
