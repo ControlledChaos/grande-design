@@ -105,21 +105,6 @@ class Settings_Fields_Site_Admin_Pages {
 			'ggd-site-admin-pages'
 		);
 
-		// Restore the TinyMCE editor.
-		add_settings_field(
-			'ggd_classic_editor',
-			__( 'Classic Editor', 'grande-design' ),
-			[ Partials\Field_Callbacks\Admin_Pages_Callbacks::instance(), 'classic_editor' ],
-			'ggd-site-admin-pages',
-			'ggd-site-admin-pages',
-			[ esc_html__( 'Disable the block editor (a.k.a. Gutenberg) and restore the TinyMCE editor.', 'grande-design' ) ]
-		);
-
-		register_setting(
-			'ggd-site-admin-pages',
-			'ggd_classic_editor'
-		);
-
 		// Use the admin header.
 		add_settings_field(
 			'ggd_use_admin_header',
