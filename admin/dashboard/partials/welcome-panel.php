@@ -54,6 +54,7 @@ if ( $contact_page ) {
 
 	<header class="grande-dashboard-section-header">
 		<h3><?php _e( 'Manage Your Portfolio', 'grande-design' ); ?></h3>
+		<p class="description"><strong><?php _e( 'Remember that it is best practice to resize very images prior to upload, then add titles and descriptions, and crop as necessary prior to adding them to a project.', 'grande-design' ); ?></strong></p>
 	</header>
 
 	<ul class="grande-dashboard-actions-list grande-dashboard-post-type-actions">
@@ -87,6 +88,8 @@ if ( $contact_page ) {
 
 	<header class="grande-dashboard-section-header">
 		<h3><?php _e( 'Manage Your Content', 'grande-design' ); ?></h3>
+
+		<p class="description"><strong><?php _e( 'Following are links to manage the primary pages on your site.', 'grande-design' ); ?></strong></p>
 	</header>
 
 	<ul class="grande-dashboard-actions-list grande-dashboard-content-actions">
