@@ -40,18 +40,6 @@ $plugin_name = $plugin_data['Name'];
  * @return void
  */
 
-// Get the settings page menu icon option from Site Settings.
-$settings_icon = sanitize_text_field( get_option( 'ggd_site_settings_link_icon' ) );
-
-// If it's not empty, use the icon class from the option.
-if ( $settings_icon ) {
-	$settings = $settings_icon;
-
-// Otherwise use the admin settings icon.
-} else {
-	$settings = 'dashicons-admin-settings';
-}
-
 /**
  * Set up the page tabs as an array for adding tabs
  * from another plugin or from a theme.
@@ -61,41 +49,40 @@ if ( $settings_icon ) {
  */
 $tabs = [
 
-    // Introduction tab.
-    sprintf(
-        '<li><a href="%1s"><span class="dashicons dashicons-welcome-learn-more"></span> %2s</a></li>',
-        '#intro',
-        esc_html__( 'Introduction', 'grande-design' )
+	// Introduction tab.
+	sprintf(
+		'<li><a href="%1s"><span class="dashicons dashicons-welcome-learn-more"></span> %2s</a></li>',
+		'#intro',
+		esc_html__( 'Introduction', 'grande-design' )
 	),
 
-	// Site Settings tab.
-    sprintf(
-        '<li><a href="%1s"><span class="dashicons %2s"></span> %3s</a></li>',
+	// Projects tab.
+	sprintf(
+		'<li><a href="%1s"><span class="dashicons dashicons-art"></span> %2s</a></li>',
+		'#projects',
+		esc_html__( 'Projects', 'grande-design' )
+	),
+
+	// Images tab.
+	sprintf(
+		'<li><a href="%1s"><span class="dashicons dashicons-format-gallery"></span> %3s</a></li>',
+		'#images',
+		esc_html__( 'Images', 'grande-design' )
+	),
+
+	// Videos tab.
+	sprintf(
+		'<li><a href="%1s"><span class="dashicons dashicons-format-video"></span> %2s</a></li>',
+		'#videos',
+		esc_html__( 'Videos', 'grande-design' )
+	),
+
+	// Settings tab.
+	sprintf(
+		'<li><a href="%1s"><span class="dashicons dashicons-admin-generic"></span> %2s</a></li>',
 		'#settings',
-		esc_attr( $settings ),
-        esc_html__( 'Site Settings', 'grande-design' )
+		esc_html__( 'Settings', 'grande-design' )
 	),
-
-	// Script Options tab.
-    sprintf(
-        '<li><a href="%1s"><span class="dashicons dashicons-editor-code"></span> %2s</a></li>',
-        '#scripts',
-        esc_html__( 'Script Options', 'grande-design' )
-	),
-
-	// Media Options tab.
-    sprintf(
-        '<li><a href="%1s"><span class="dashicons dashicons-admin-media"></span> %2s</a></li>',
-        '#media',
-        esc_html__( 'Media Options', 'grande-design' )
-	),
-
-	// Dev Tools tab.
-    sprintf(
-        '<li><a href="%1s"><span class="dashicons dashicons-welcome-learn-more"></span> %2s</a></li>',
-        '#tools',
-        esc_html__( 'Development Tools', 'grande-design' )
-    ),
 
 ];
 
@@ -128,17 +115,17 @@ $page_tabs = apply_filters( 'ggd_tabs_page_about', $tabs );
 		<div id="intro"><!-- Introduction content -->
 			<?php include_once GGD_PATH . 'admin/partials/plugin-page-intro.php'; ?>
 		</div>
-		<div id="settings"><!-- Site Settings content -->
-			<?php include_once GGD_PATH . 'admin/partials/plugin-page-site-settings.php'; ?>
+		<div id="projects"><!-- Media Options content -->
+			<?php include_once GGD_PATH . 'admin/partials/plugin-page-projects.php'; ?>
 		</div>
-		<div id="scripts"><!-- Script Options content -->
-			<?php include_once GGD_PATH . 'admin/partials//plugin-page-script-options.php'; ?>
+		<div id="images"><!-- Images content -->
+			<?php include_once GGD_PATH . 'admin/partials/plugin-page-images.php'; ?>
 		</div>
-		<div id="media"><!-- Media Options content -->
-			<?php include_once GGD_PATH . 'admin/partials/plugin-page-media-options.php'; ?>
+		<div id="videos"><!-- Videos content -->
+			<?php include_once GGD_PATH . 'admin/partials//plugin-page-videos.php'; ?>
 		</div>
-		<div id="tools"><!-- Dev Tools content -->
-			<?php include_once GGD_PATH . 'admin/partials/plugin-page-dev-tools.php'; ?>
+		<div id="settings"><!-- Dev Tools content -->
+			<?php include_once GGD_PATH . 'admin/partials/plugin-page-settings.php'; ?>
 		</div>
 		<?php // Hook for adding tabbed content.
 		do_action( 'ggd_content_page_about_after' ); ?>
