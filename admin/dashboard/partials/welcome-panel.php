@@ -21,27 +21,35 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 $contact_page = get_page_by_path( 'contact' );
-$contact_id   = $contact_page->ID; ?>
+$contact_id   = null;
 
-<div class="abcd-dashboard-summary">
+if ( $contact_page ) {
+	$contact_id = $contact_page->ID;
+}
+
+?>
+<div class="grande-dashboard-summary">
 	<?php wp_dashboard_right_now(); ?>
 </div>
-<div class="abcd-dashboard-post-managment">
-	<header class="abcd-dashboard-section-header">
+
+<div class="grande-dashboard-post-managment">
+
+	<header class="grande-dashboard-section-header">
 		<h3><?php _e( 'Manage Your Portfolio', 'grande-design' ); ?></h3>
 	</header>
-	<ul class="abcd-dashboard-post-type-actions">
+
+	<ul class="grande-dashboard-actions-list grande-dashboard-post-type-actions">
 		<li>
 			<h4><?php _e( 'Projects', 'grande-design' ); ?></h4>
-			<div class="abcd-dashboard-post-type-actions-icon features-icon"><span class="dashicons dashicons-art"></span></div>
+			<div class="grande-dashboard-icon features-icon"><span class="dashicons dashicons-art"></span></div>
 			<p>
-				<a href="<?php echo admin_url( 'post-new.php?post_type=projects' ); ?>"><?php _e( 'Add New', 'grande-design' ); ?></a>
-				<a href="<?php echo admin_url( 'edit.php?post_type=projects' ); ?>"><?php _e( 'View List', 'grande-design' ); ?></a>
+				<a href="<?php echo admin_url( 'post-new.php?post_type=project' ); ?>"><?php _e( 'Add New', 'grande-design' ); ?></a>
+				<a href="<?php echo admin_url( 'edit.php?post_type=project' ); ?>"><?php _e( 'View List', 'grande-design' ); ?></a>
 			</p>
 		</li>
 		<li>
 			<h4><?php _e( 'Images', 'grande-design' ); ?></h4>
-			<div class="abcd-dashboard-content-actions-icon front-icon"><span class="dashicons dashicons-format-gallery"></span></div>
+			<div class="grande-dashboard-icon media-icon"><span class="dashicons dashicons-format-gallery"></span></div>
 			<p>
 				<a href="<?php echo admin_url( 'media-new.php' ); ?>"><?php _e( 'Add New', 'grande-design' ); ?></a>
 				<a href="<?php echo admin_url( 'upload.php' ); ?>"><?php _e( 'Manage', 'grande-design' ); ?></a>
@@ -49,39 +57,29 @@ $contact_id   = $contact_page->ID; ?>
 		</li>
 	</ul>
 </div>
-<div class="abcd-dashboard-content-managment">
-	<header class="abcd-dashboard-section-header">
+
+<div class="grande-dashboard-content-managment">
+
+	<header class="grande-dashboard-section-header">
 		<h3><?php _e( 'Manage Your Content', 'grande-design' ); ?></h3>
 	</header>
-	<ul class="abcd-dashboard-content-actions">
+
+	<ul class="grande-dashboard-actions-list grande-dashboard-content-actions">
 		<li>
 			<h4><?php _e( 'Front Page', 'grande-design' ); ?></h4>
-			<div class="abcd-dashboard-content-actions-icon front-icon"><span class="dashicons dashicons-admin-home"></span></div>
+			<div class="grande-dashboard-icon front-icon"><span class="dashicons dashicons-admin-home"></span></div>
 			<p>
 				<a href="<?php echo admin_url( 'post.php?post=' . get_option( 'page_on_front' ) . '&action=edit' ); ?>"><?php _e( 'Manage Slides', 'grande-design' ); ?></a>
 			</p>
 		</li>
-		<li>
-			<h4><?php _e( 'Snippets', 'grande-design' ); ?></h4>
-			<div class="abcd-dashboard-content-actions-icon snippets-icon"><span class="dashicons dashicons-art"></span></div>
-			<p>
-				<a href="<?php echo admin_url( 'post-new.php?post_type=bloom_snippets' ); ?>"><?php _e( 'Add New', 'grande-design' ); ?></a>
-				<a href="<?php echo admin_url( 'edit.php?post_type=bloom_snippets' ); ?>"><?php _e( 'View List', 'grande-design' ); ?></a>
-			</p>
-		</li>
-		<li>
-			<h4><?php _e( 'Gallery', 'grande-design' ); ?></h4>
-			<div class="abcd-dashboard-content-actions-icon gallery-icon"><span class="dashicons dashicons-format-gallery"></span></div>
-			<p>
-				<a href="<?php echo admin_url( 'post.php?post=' . $gallery_id . '&action=edit' ); ?>"><?php _e( 'Manage Images', 'grande-design' ); ?></a>
-			</p>
-		</li>
+		<?php if ( $contact_page ) : ?>
 		<li>
 			<h4><?php _e( 'Contact', 'grande-design' ); ?></h4>
-			<div class="abcd-dashboard-content-actions-icon contact-icon"><span class="dashicons dashicons-email"></span></div>
+			<div class="grande-dashboard-icon contact-icon"><span class="dashicons dashicons-email"></span></div>
 			<p>
 				<a href="<?php echo admin_url( 'post.php?post=' . $contact_id . '&action=edit' ); ?>"><?php _e( 'Manage Info', 'grande-design' ); ?></a>
 			</p>
 		</li>
+		<?php endif; // $contact_page ?>
 	</ul>
 </div>
