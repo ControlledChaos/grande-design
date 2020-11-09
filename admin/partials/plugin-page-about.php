@@ -23,6 +23,11 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+// Get plugin data.
+require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+$plugin_data = get_plugin_data( __FILE__ );
+$plugin_name = $plugin_data['Name'];
+
 /**
  * Site Settings tab icon.
  *
@@ -100,10 +105,18 @@ $page_tabs = apply_filters( 'ggd_tabs_page_about', $tabs );
 ?>
 <!-- Default WordPress/ClassicPress page wrapper -->
 <div class="wrap site-plugin-wrap">
+
 	<!-- Page heading -->
-	<?php echo sprintf( '<h1 class="wp-heading-inline">%1s %2s</h1>', get_bloginfo( 'name' ), esc_html__( 'Plugin', 'grande-design' ) ); ?>
+	<?php echo sprintf( '<h1 class="wp-heading-inline">%1s %2s</h1>', get_bloginfo( 'name' ), esc_html__( 'Website Help', 'grande-design' ) ); ?>
+
 	<!-- Page description -->
-    <p class="description"><?php esc_html_e( 'A feature-packed WordPress or ClassicPress starter plugin for building custom-tailored websites.', 'grande-design' ); ?></p>
+	<?php echo sprintf(
+		'<p class="description">%s %s %s</p>',
+		__( 'A reference for using your website when using the', 'grande-design' ),
+		GGD_PLUGIN_NAME,
+		__( 'plugin.', 'grande-design' )
+	); ?>
+
 	<!-- Begin jQuery tabbed content -->
 	<div class="backend-tabbed-content">
 		<ul>

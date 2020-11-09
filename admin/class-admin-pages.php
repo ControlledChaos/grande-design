@@ -228,7 +228,7 @@ class Admin_Pages {
             );
         } else {
             $this->help_about_plugin = add_submenu_page(
-                'plugins.php',
+                'index.php',
                 $label,
                 $label,
                 'manage_options',

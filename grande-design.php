@@ -176,6 +176,16 @@ if ( ! class_exists( 'Grande_Design' ) ) :
 			}
 
 			/**
+			 * Plugin Name
+			 *
+			 * @since  1.0.0
+			 * @return string Returns the name of the plugin.
+			 */
+			if ( ! defined( 'GGD_PLUGIN_NAME' ) ) {
+				define( 'GGD_PLUGIN_NAME', 'Grande Design' );
+			}
+
+			/**
 			 * Default meta image
 			 *
 			 * Change the path and file name to suit your needs.
