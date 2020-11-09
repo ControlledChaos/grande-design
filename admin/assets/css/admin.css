@@ -25,6 +25,13 @@
 }
 
 /**
+ * Dashboard
+ */
+#dashboard-widgets-wrap {
+  display: none;
+}
+
+/**
  * Plugins
  *
  * For the installed plugins and the add new plugins screens.
@@ -220,12 +227,12 @@ html .backend-tabbed-content .ui-button.ui-state-disabled:hover {
 }
 
 .ui-sortable tr.alternate {
-  background-color: #F9F9F9;
+  background-color: #f9f9f9;
 }
 
 .ui-sortable tr.ui-sortable-helper {
-  background-color: #F9F9F9;
-  border-top: 1px solid #DFDFDF;
+  background-color: #f9f9f9;
+  border-top: 1px solid #dfdfdf;
 }
 
 /**

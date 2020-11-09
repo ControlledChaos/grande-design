@@ -173,6 +173,7 @@ class Dashboard {
 		unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);
 		unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press']);
 		unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now'] );
+		unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_petitions']);
 		remove_meta_box( 'dashboard_activity', 'dashboard', 'normal' );
 	}
 
