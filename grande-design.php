@@ -2,6 +2,8 @@
 /**
  * Grande Design
  *
+ * Core WordPress/ClassicPress plugin for the Greg Grande website.
+ *
  * @package     Grande_Design
  * @version     1.0.0
  * @author      Greg Sweet <greg@ccdzine.com>
