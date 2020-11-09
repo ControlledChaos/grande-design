@@ -143,7 +143,7 @@ class Settings_Page_Site {
 					'menu_title' => $label,
 					'menu_slug'  => GGD_ADMIN_SLUG . '-settings',
 					'icon_url'   => $icon,
-					'position'   => 3,
+					'position'   => 80,
 					'capability' => 'manage_options',
 					'redirect'   => false
 				] );
@@ -221,7 +221,7 @@ class Settings_Page_Site {
 					GGD_ADMIN_SLUG . '-settings',
 					[ $this, 'page_output' ],
 					$icon,
-					3
+					80
 				);
 
 				// Remove the default settings links at the bottom of the admin menu.
