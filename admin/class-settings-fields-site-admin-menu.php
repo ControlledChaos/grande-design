@@ -284,22 +284,6 @@ class Settings_Fields_Site_Admin_Menu {
 			'ggd-site-admin-menu',
 			'ggd_hide_tools'
 		);
-
-		// Show/Hide Links Manager link.
-		add_settings_field(
-			'ggd_hide_links',
-			__( 'Restore Links Manager', 'grande-design' ),
-			[ Partials\Field_Callbacks\Admin_Menu_Callbacks::instance(), 'hide_links' ],
-			'ggd-site-admin-menu',
-			'ggd-site-admin-menu',
-			[ esc_html__( 'The old Links Manager is hidden by default in newer WordPress/ClassicPress installations', 'grande-design' ) ]
-		);
-
-		register_setting(
-			'ggd-site-admin-menu',
-			'ggd_hide_links'
-		);
-
 	}
 
 }

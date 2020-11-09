@@ -70,24 +70,8 @@ class Admin_Menu {
 
 		}
 
-		/**
-		 * Show/Hide Links Manager link.
-		 */
-
-		// Get links option.
-		if ( ggd_acf_options() ) {
-			$links = get_field( 'ggd_links_manager', 'option' );
-		} else {
-			$links = get_option( 'ggd_hide_links' );
-		}
-
-		// Return links filter.
-		if ( $links ) {
-			add_filter( 'pre_option_link_manager_enabled', '__return_true' );
-		} else {
-			add_filter( 'pre_option_link_manager_enabled', '__return_false' );
-		}
-
+		// Hide Links Manager.
+		add_filter( 'pre_option_link_manager_enabled', '__return_false' );
 
 		// Move the Menus & Widgets menu items.
 		add_action( 'admin_menu', [ $this, 'menus_widgets' ] );
@@ -172,9 +156,9 @@ class Admin_Menu {
 			if ( $tools ) {
 				remove_menu_page( 'tools.php' );
 			}
-
 		}
 
+		update_option( 'link_manager_enabled', 0 );
 	}
 
 	/**
@@ -322,9 +306,7 @@ class Admin_Menu {
 
 		// Return the new capabilities.
 		return $caps;
-
 	}
-
 }
 
 /**
@@ -335,9 +317,7 @@ class Admin_Menu {
  * @return object Returns an instance of the class.
  */
 function ggd_admin_menu() {
-
 	return Admin_Menu::instance();
-
 }
 
 // Run an instance of the class.
