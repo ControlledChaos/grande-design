@@ -79,17 +79,11 @@ class Settings_Fields_Site {
 	 */
 	private function dependencies() {
 
-		// Settings for the Dashboard tab.
-		require GGD_PATH . 'admin/class-settings-fields-site-dashboard.php';
-
 		// Settings for the Admin Menu tab.
 		require GGD_PATH . 'admin/class-settings-fields-site-admin-menu.php';
 
 		// Settings for the Admin Menu tab.
 		require GGD_PATH . 'admin/class-settings-fields-site-admin-pages.php';
-
-		// Settings for the Admin Menu tab.
-		require GGD_PATH . 'admin/class-settings-fields-site-users.php';
 
 		// Callbacks for the Meta/SEO tab.
 		require GGD_PATH . 'admin/class-settings-fields-site-meta-seo.php';

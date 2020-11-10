@@ -23,9 +23,9 @@ if ( ! defined( 'WPINC' ) ) {
  * @return void
  */
 if ( isset( $_GET[ 'tab' ] ) ) {
-    $active_tab = $_GET[ 'tab' ];
+	$active_tab = $_GET[ 'tab' ];
 } else {
-    $active_tab = 'dashboard';
+	$active_tab = 'admin-menu';
 }
 
 /**
@@ -37,45 +37,29 @@ if ( isset( $_GET[ 'tab' ] ) ) {
  */
 $tabs = [
 
-    // Dashboard tab.
-    sprintf(
-        '<a href="?page=%1s-settings&tab=dashboard" class="nav-tab %2s"><span class="dashicons dashicons-dashboard"></span> %3s</a>',
-        GGD_ADMIN_SLUG,
-        $active_tab == 'dashboard' ? 'nav-tab-active' : '',
-        esc_html__( 'Dashboard', 'grande-design' )
-    ),
+	// Admin menu tab.
+	sprintf(
+		'<a href="?page=%1s-settings&tab=admin-menu" class="nav-tab %2s"><span class="dashicons dashicons-menu"></span> %3s</a>',
+		GGD_ADMIN_SLUG,
+		$active_tab == 'admin-menu' ? 'nav-tab-active' : '',
+		esc_html__( 'Admin Menu', 'grande-design' )
+	),
 
-    // Admin menu tab.
-    sprintf(
-        '<a href="?page=%1s-settings&tab=admin-menu" class="nav-tab %2s"><span class="dashicons dashicons-menu"></span> %3s</a>',
-        GGD_ADMIN_SLUG,
-        $active_tab == 'admin-menu' ? 'nav-tab-active' : '',
-        esc_html__( 'Admin Menu', 'grande-design' )
-    ),
+	// Admin pages tab.
+	sprintf(
+		'<a href="?page=%1s-settings&tab=admin-pages" class="nav-tab %2s"><span class="dashicons dashicons-admin-page"></span> %3s</a>',
+		GGD_ADMIN_SLUG,
+		$active_tab == 'admin-pages' ? 'nav-tab-active' : '',
+		esc_html__( 'Admin Pages', 'grande-design' )
+	),
 
-    // Admin pages tab.
-    sprintf(
-        '<a href="?page=%1s-settings&tab=admin-pages" class="nav-tab %2s"><span class="dashicons dashicons-admin-page"></span> %3s</a>',
-        GGD_ADMIN_SLUG,
-        $active_tab == 'admin-pages' ? 'nav-tab-active' : '',
-        esc_html__( 'Admin Pages', 'grande-design' )
-    ),
-
-    // Users tab.
-    sprintf(
-        '<a href="?page=%1s-settings&tab=users" class="nav-tab %2s"><span class="dashicons dashicons-admin-users"></span> %3s</a>',
-        GGD_ADMIN_SLUG,
-        $active_tab == 'users' ? 'nav-tab-active' : '',
-        esc_html__( 'Site Users', 'grande-design' )
-    ),
-
-    // Meta/SEO tab.
-    sprintf(
-        '<a href="?page=%1s-settings&tab=meta-seo" class="nav-tab %2s"><span class="dashicons dashicons-tag"></span> %3s</a>',
-        GGD_ADMIN_SLUG,
-        $active_tab == 'meta-seo' ? 'nav-tab-active' : '',
-        esc_html__( 'Meta/SEO', 'grande-design' )
-    )
+	// Meta/SEO tab.
+	sprintf(
+		'<a href="?page=%1s-settings&tab=meta-seo" class="nav-tab %2s"><span class="dashicons dashicons-tag"></span> %3s</a>',
+		GGD_ADMIN_SLUG,
+		$active_tab == 'meta-seo' ? 'nav-tab-active' : '',
+		esc_html__( 'Meta/SEO', 'grande-design' )
+	)
 
 ];
 
@@ -88,24 +72,18 @@ $page_tabs = apply_filters( 'ggd_tabs_site_settings', $tabs );
  * @since  1.0.0
  * @return void
  */
-if ( 'dashboard' == $active_tab  ) {
-    $section = 'ggd-site-dashboard';
-    $fields  = 'ggd-site-dashboard';
-} elseif ( 'admin-menu' == $active_tab ) {
-    $section = 'ggd-site-admin-menu';
-    $fields  = 'ggd-site-admin-menu';
+if ( 'admin-menu' == $active_tab ) {
+	$section = 'ggd-site-admin-menu';
+	$fields  = 'ggd-site-admin-menu';
 } elseif ( 'admin-pages' == $active_tab ) {
-    $section = 'ggd-site-admin-pages';
-    $fields  = 'ggd-site-admin-pages';
-} elseif ( 'users' == $active_tab ) {
-    $section = 'ggd-site-users';
-    $fields  = 'ggd-site-users';
+	$section = 'ggd-site-admin-pages';
+	$fields  = 'ggd-site-admin-pages';
 } elseif ( 'meta-seo' == $active_tab ) {
-    $section = 'ggd-site-meta-seo';
-    $fields  = 'ggd-site-meta-seo';
+	$section = 'ggd-site-meta-seo';
+	$fields  = 'ggd-site-meta-seo';
 } else {
-    $section = null;
-    $fields  = null;
+	$section = null;
+	$fields  = null;
 }
 
 // Apply filters to the sections and fields for new tabs.
@@ -118,18 +96,14 @@ $do_fields  = apply_filters( 'ggd_fields_site_settings', $fields );
  * @since  1.0.0
  * @return string Returns the button label.
  */
-if ( 'dashboard' == $active_tab  ) {
-    $save = __( 'Save Dashboard', 'grande-design' );
-} elseif ( 'admin-menu' == $active_tab ) {
-    $save = __( 'Save Menu', 'grande-design' );
+if ( 'admin-menu' == $active_tab ) {
+	$save = __( 'Save Menu', 'grande-design' );
 } elseif ( 'admin-pages' == $active_tab ) {
-    $save = __( 'Save Pages', 'grande-design' );
-} elseif ( 'users' == $active_tab ) {
-    $save = __( 'Save Users', 'grande-design' );
+	$save = __( 'Save Pages', 'grande-design' );
 } elseif ( 'meta-seo' == $active_tab ) {
-    $save = __( 'Save Meta', 'grande-design' );
+	$save = __( 'Save Meta', 'grande-design' );
 } else {
-    $save = __( 'Save Settings', 'grande-design' );
+	$save = __( 'Save Settings', 'grande-design' );
 }
 
 // Apply a filter for new tabs added by another plugin or from a theme.
@@ -138,20 +112,20 @@ $button = apply_filters( 'ggd_save_site_settings', $save );
 ?>
 <div class="wrap">
 	<?php echo sprintf(
-        '<h1 class="wp-heading-inline">%1s %2s</h1>',
-        get_bloginfo( 'name' ),
-        esc_html__( 'Settings', 'grande-design' )
-    ); ?>
-    <p class="description"><?php esc_html_e( 'Customize the way WordPress is used.', 'grande-design' ); ?></p>
-    <hr class="wp-header-end">
-    <h2 class="nav-tab-wrapper">
+		'<h1 class="wp-heading-inline">%1s %2s</h1>',
+		get_bloginfo( 'name' ),
+		esc_html__( 'Settings', 'grande-design' )
+	); ?>
+	<p class="description"><?php esc_html_e( 'Customize the way WordPress is used.', 'grande-design' ); ?></p>
+	<hr class="wp-header-end">
+	<h2 class="nav-tab-wrapper">
 		<?php echo implode( $page_tabs ); ?>
-    </h2>
+	</h2>
 	<form method="post" action="options.php">
-        <?php
-        settings_fields( $do_fields );
-        do_settings_sections( $do_section );
-        ?>
-        <p class="submit"><?php submit_button( $button, 'primary', '', false, [] ); ?></p>
-    </form>
+		<?php
+		settings_fields( $do_fields );
+		do_settings_sections( $do_section );
+		?>
+		<p class="submit"><?php submit_button( $button, 'primary', '', false, [] ); ?></p>
+	</form>
 </div>

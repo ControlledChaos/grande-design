@@ -136,14 +136,6 @@ class Admin {
 		// Functions for various admin pages and edit screens.
 		require_once GGD_PATH . 'admin/class-admin-pages.php';
 
-		// Add WYSIWYG editor to user bio field.
-		require_once GGD_PATH . 'admin/class-user-bio.php';
-
-		// Import custom fields for editing, if ACF Pro is active.
-		if ( ggd_acf_options() ) {
-			include_once GGD_PATH . 'admin/class-fields-import.php';
-		}
-
 		// Filter by page template.
 		require_once GGD_PATH . 'admin/class-admin-template-filter.php';
 

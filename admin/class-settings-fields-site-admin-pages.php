@@ -134,37 +134,6 @@ class Settings_Fields_Site_Admin_Pages {
 			'ggd-site-admin-pages',
 			'ggd_use_custom_sort_order'
 		);
-
-		// Admin footer credit.
-		add_settings_field(
-			'ggd_footer_credit',
-			__( 'Admin Footer Credit', 'grande-design' ),
-			[ Partials\Field_Callbacks\Admin_Pages_Callbacks::instance(), 'footer_credit' ],
-			'ggd-site-admin-pages',
-			'ggd-site-admin-pages',
-			[ esc_html__( 'The "developed by" credit.', 'grande-design' ) ]
-		);
-
-		register_setting(
-			'ggd-site-admin-pages',
-			'ggd_footer_credit'
-		);
-
-		// Admin footer link.
-		add_settings_field(
-			'ggd_footer_link',
-			__( 'Admin Footer Link', 'grande-design' ),
-			[ Partials\Field_Callbacks\Admin_Pages_Callbacks::instance(), 'footer_link' ],
-			'ggd-site-admin-pages',
-			'ggd-site-admin-pages',
-			[ esc_html__( 'Link to the website devoloper.', 'grande-design' ) ]
-		);
-
-		register_setting(
-			'ggd-site-admin-pages',
-			'ggd_footer_link'
-		);
-
 	}
 
 }
@@ -177,9 +146,7 @@ class Settings_Fields_Site_Admin_Pages {
  * @return object Returns an instance of the class.
  */
 function ggd_settings_fields_site_admin_pages() {
-
 	return Settings_Fields_Site_Admin_Pages::instance();
-
 }
 
 // Run an instance of the class.
