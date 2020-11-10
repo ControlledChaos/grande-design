@@ -127,7 +127,22 @@ $page_tabs = apply_filters( 'ggd_tabs_page_about', $tabs );
 		<div id="settings"><!-- Dev Tools content -->
 			<?php include_once GGD_PATH . 'admin/partials/plugin-page-settings.php'; ?>
 		</div>
-		<?php // Hook for adding tabbed content.
+		<?php
+
+		// Hook for adding tabbed content.
 		do_action( 'ggd_content_page_about_after' ); ?>
+
 	</div><!-- End jQuery tabbed content -->
+
+	<footer>
+		<?php echo sprintf(
+			'<p class="description"><strong>%s</strong> %s <a href="%s">%s</a> %s</p>',
+			__( 'Developers:', 'grande-design' ),
+			__( 'The content of these tabs can be edited in the', 'grande-design' ),
+			esc_url( admin_url( 'edit.php?post_type=website_help' ) ),
+			__( 'Website Help', 'grande-design' ),
+			__( 'post type.', 'grande-design' )
+		); ?>
+	</footer>
+
 </div><!-- End WordPress/ClassicPress page wrapper -->

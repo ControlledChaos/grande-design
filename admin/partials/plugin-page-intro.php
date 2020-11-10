@@ -20,7 +20,3 @@ if ( ! defined( 'WPINC' ) ) {
 <h2><?php _e( 'Website Overview', 'grande-design' ); ?></h2>
 
 <p><?php _e( '', 'grande-design' ); ?></p>
-
-<h3><?php _e( 'Publishing & Editing', 'grande-design' ); ?></h3>
-
-<p><?php _e( '', 'grande-design' ); ?></p>
