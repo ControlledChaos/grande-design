@@ -120,3 +120,11 @@ if ( $contact_page ) {
 		</li>
 	</ul>
 </div>
+
+<?php
+/**
+ * Custom development hook.
+ *
+ * @since 1.0.0
+ */
+do_action( 'grande_dashboard' );
