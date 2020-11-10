@@ -8,12 +8,17 @@
   font-size: 1rem;
 }
 
-.welcome-panel h3 {
+.welcome-panel h2 {
   font-size: 1.25em;
+  font-weight: 600;
 }
 
 #dashboard-widgets-wrap {
   display: none;
+}
+
+.grande-dashboard-summary h2 {
+  margin-top: 0;
 }
 
 .grande-dashboard-summary ul {
@@ -33,6 +38,14 @@
 .grande-dashboard-summary ul li {
   margin-right: 1em;
   line-height: 1;
+}
+
+.grande-dashboard-summary #wp-version-message {
+  margin: 0.5em 0 0;
+}
+
+.grande-dashboard-summary .grande-website-help-link {
+  margin: 0;
 }
 
 .grande-dashboard-post-managment {
@@ -68,13 +81,17 @@
           justify-content: space-between;
   padding: 2rem;
   border: solid 1px #ccc;
-  font-size: 1.25em;
+  font-size: 1em;
 }
 
-.grande-dashboard-actions-list li h4,
+.grande-dashboard-actions-list li h3,
 .grande-dashboard-actions-list li p {
   margin: 0;
   line-height: 1;
+}
+
+.grande-dashboard-actions-list li h3 {
+  font-size: 1.25em;
 }
 
 .grande-dashboard-actions-list li p {

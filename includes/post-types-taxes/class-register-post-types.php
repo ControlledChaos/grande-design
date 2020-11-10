@@ -172,7 +172,7 @@ final class Post_Types_Register {
 			'label'               => __( 'Help Pages', 'grande-design' ),
 			'labels'              => $labels,
 			'description'         => __( 'Website user help pages.', 'grande-design' ),
-			'public'              => true,
+			'public'              => false,
 			'publicly_queryable'  => true,
 			'show_ui'             => true,
 			'show_in_rest'        => false,

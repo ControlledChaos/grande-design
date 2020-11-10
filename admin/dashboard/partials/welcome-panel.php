@@ -20,6 +20,10 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+if ( ! current_user_can( 'edit_posts' ) ) {
+	return;
+}
+
 /**
  * Get pages by slug
  *
@@ -45,21 +49,28 @@ if ( $contact_page ) {
 
 ?>
 <div class="grande-dashboard-summary">
-	<h3><?php _e( 'Website Summary', 'grande-design' ); ?></h3>
+	<h2><?php _e( 'Website Summary', 'grande-design' ); ?></h2>
 
 	<?php wp_dashboard_right_now(); ?>
+
+	<?php echo sprintf(
+		'<p class="grande-website-help-link">%s <a href="%s">%s</a></p>',
+		__( 'For tips and assistance managing this website visit the', 'grande-design' ),
+		esc_url( admin_url( 'index.php?page=grande-design-page' ) ),
+		__( 'Website Help page', 'grande-design' )
+	); ?>
 </div>
 
 <div class="grande-dashboard-post-managment">
 
 	<header class="grande-dashboard-section-header">
-		<h3><?php _e( 'Manage Your Portfolio', 'grande-design' ); ?></h3>
+		<h2><?php _e( 'Manage Your Portfolio', 'grande-design' ); ?></h2>
 		<p class="description"><strong><?php _e( 'Remember that it is best practice to resize very images prior to upload, then add titles and descriptions, and crop as necessary prior to adding them to a project.', 'grande-design' ); ?></strong></p>
 	</header>
 
 	<ul class="grande-dashboard-actions-list grande-dashboard-post-type-actions">
 		<li>
-			<h4><?php _e( 'Media', 'grande-design' ); ?></h4>
+			<h3><?php _e( 'Media', 'grande-design' ); ?></h3>
 			<div class="grande-dashboard-icon media-library-icon"><span class="dashicons dashicons-format-gallery"></span></div>
 			<p>
 				<a href="<?php echo admin_url( 'media-new.php' ); ?>"><?php _e( 'Add New', 'grande-design' ); ?></a>
@@ -67,7 +78,7 @@ if ( $contact_page ) {
 			</p>
 		</li>
 		<li>
-			<h4><?php _e( 'Projects', 'grande-design' ); ?></h4>
+			<h3><?php _e( 'Projects', 'grande-design' ); ?></h3>
 			<div class="grande-dashboard-icon projects-icon"><span class="dashicons dashicons-art"></span></div>
 			<p>
 				<a href="<?php echo admin_url( 'post-new.php?post_type=project' ); ?>"><?php _e( 'Add New', 'grande-design' ); ?></a>
@@ -75,7 +86,7 @@ if ( $contact_page ) {
 			</p>
 		</li>
 		<li>
-			<h4><?php _e( 'Categories', 'grande-design' ); ?></h4>
+			<h3><?php _e( 'Categories', 'grande-design' ); ?></h3>
 			<div class="grande-dashboard-icon categories-icon"><span class="dashicons dashicons-category"></span></div>
 			<p>
 			<a href="<?php echo admin_url( 'edit-tags.php?taxonomy=priority&post_type=project' ); ?>"><?php _e( 'Manage Categories', 'grande-design' ); ?></a>
@@ -87,7 +98,7 @@ if ( $contact_page ) {
 <div class="grande-dashboard-content-managment">
 
 	<header class="grande-dashboard-section-header">
-		<h3><?php _e( 'Manage Your Content', 'grande-design' ); ?></h3>
+		<h2><?php _e( 'Manage Your Content', 'grande-design' ); ?></h2>
 
 		<p class="description"><strong><?php _e( 'Following are links to manage the primary pages on your site.', 'grande-design' ); ?></strong></p>
 	</header>
@@ -95,7 +106,7 @@ if ( $contact_page ) {
 	<ul class="grande-dashboard-actions-list grande-dashboard-content-actions">
 		<?php if ( $resume_page ) : ?>
 		<li>
-			<h4><?php _e( 'Resume', 'grande-design' ); ?></h4>
+			<h3><?php _e( 'Resume', 'grande-design' ); ?></h3>
 			<div class="grande-dashboard-icon resume-icon"><span class="dashicons dashicons-businessman"></span></div>
 			<p>
 				<a href="<?php echo admin_url( 'post.php?post=' . $resume_id . '&action=edit' ); ?>"><?php _e( 'Manage Info', 'grande-design' ); ?></a>
@@ -104,7 +115,7 @@ if ( $contact_page ) {
 		<?php endif; // $resume_page ?>
 		<?php if ( $contact_page ) : ?>
 		<li>
-			<h4><?php _e( 'Contact', 'grande-design' ); ?></h4>
+			<h3><?php _e( 'Contact', 'grande-design' ); ?></h3>
 			<div class="grande-dashboard-icon contact-icon"><span class="dashicons dashicons-email"></span></div>
 			<p>
 				<a href="<?php echo admin_url( 'post.php?post=' . $contact_id . '&action=edit' ); ?>"><?php _e( 'Manage Info', 'grande-design' ); ?></a>
@@ -112,7 +123,7 @@ if ( $contact_page ) {
 		</li>
 		<?php endif; // $contact_page ?>
 		<li>
-			<h4><?php _e( 'Front Page', 'grande-design' ); ?></h4>
+			<h3><?php _e( 'Front Page', 'grande-design' ); ?></h3>
 			<div class="grande-dashboard-icon front-icon"><span class="dashicons dashicons-admin-home"></span></div>
 			<p>
 				<a href="<?php echo admin_url( 'post.php?post=' . get_option( 'page_on_front' ) . '&action=edit' ); ?>"><?php _e( 'Manage Display', 'grande-design' ); ?></a>
