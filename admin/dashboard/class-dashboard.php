@@ -70,6 +70,64 @@ class Dashboard {
 		// Replace the welcome panel with custom content.
 		remove_action( 'welcome_panel', 'wp_welcome_panel' );
 		add_action( 'welcome_panel', [ $this, 'dashboard_content' ], 25 );
+
+		// Remove the dashboard dismiss button.
+		add_action( 'admin_head', [ $this, 'dismiss' ] );
+
+		// Remove screen options.
+		add_filter( 'screen_options_show_screen', [ $this, 'screen_options' ], 10, 2 );
+	}
+
+	/**
+	 * Remove the welcome panel dismiss button if option selected.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function dismiss() {
+
+		$dismiss = '
+			<style>
+				/*
+				* Welcome panel user dismiss option
+				* is disabled in the Customizer
+				*/
+				a.welcome-panel-close, #wp_welcome_panel-hide, .metabox-prefs label[for="wp_welcome_panel-hide"] {
+					display: none !important;
+				}
+				.welcome-panel {
+					display: block !important;
+				}
+			</style>
+			';
+
+		echo $dismiss;
+	}
+
+	/**
+	 * Removes screen options tab
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @param  boolean $display_boolean
+	 * @param  object $wp_screen_object
+	 * @return boolean Returns false for the screens in the array.
+	 */
+	public function screen_options( $display_boolean, $wp_screen_object ) {
+
+		$blacklist = [
+			'index.php'
+		];
+
+		if ( in_array( $GLOBALS['pagenow'], $blacklist ) ) {
+			$wp_screen_object->render_screen_layout();
+			$wp_screen_object->render_per_page_options();
+
+			return false;
+		}
+
+		return true;
 	}
 
 	/**
