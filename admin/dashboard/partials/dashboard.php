@@ -49,9 +49,14 @@ if ( $contact_page ) {
 
 ?>
 <div class="grande-dashboard-summary">
+
 	<h2><?php _e( 'Website Summary', 'grande-design' ); ?></h2>
 
+	<?php do_action( 'before_right_now' ); ?>
+
 	<?php wp_dashboard_right_now(); ?>
+
+	<?php do_action( 'after_right_now' ); ?>
 
 	<?php echo sprintf(
 		'<p class="grande-website-help-link">%s <a href="%s">%s</a></p>',

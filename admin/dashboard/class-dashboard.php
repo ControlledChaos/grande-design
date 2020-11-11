@@ -40,15 +40,10 @@ class Dashboard {
 
 			// Set variable for new instance.
 			$instance = new self;
-
-			// Require the class files.
-			$instance->dependencies();
-
 		}
 
 		// Return the instance.
 		return $instance;
-
 	}
 
 	/**
@@ -69,29 +64,12 @@ class Dashboard {
 		// Remove contextual help content.
 		add_action( 'admin_head', [ $this, 'remove_help' ] );
 
-		// Add contextual help content.
-		// add_action( 'admin_head', [ $this, 'add_help' ] );
-
 		// Enqueue dashboard stylesheet.
 		add_action( 'admin_enqueue_scripts', [ $this, 'styles' ] );
 
-	}
-
-	/**
-	 * Class dependency files.
-	 *
-	 * @since  1.0.0
-	 * @access private
-	 * @return void
-	 */
-	private function dependencies() {
-
-		// Get the dashboard widget class.
-		// require GGD_PATH . 'admin/dashboard/class-dashboard-widget.php';
-
-		// Get the welcome panel class.
-		require GGD_PATH . 'admin/dashboard/class-welcome.php';
-
+		// Replace the welcome panel with custom content.
+		remove_action( 'welcome_panel', 'wp_welcome_panel' );
+		add_action( 'welcome_panel', [ $this, 'dashboard_content' ], 25 );
 	}
 
 	/**
@@ -151,7 +129,6 @@ class Dashboard {
 
 			}
 		}
-
 	}
 
 	/**
@@ -207,98 +184,6 @@ class Dashboard {
 		$screen->set_help_sidebar(
 			null
 		);
-
-	}
-
-	/**
-	 * Add contextual help content.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return void
-	 */
-	public function add_help() {
-
-		// Get the screen ID to target the Dashboard.
-		$screen = get_current_screen();
-
-		// Bail if not on the Dashboard screen.
-		if ( $screen->id != 'dashboard' ) {
-			return;
-		}
-
-		// Dashboard widget tab.
-		$screen->add_help_tab( [
-			'id'       => 'help_welcome_panel',
-			'title'    => __( 'Welcome Panel', 'grande-design' ),
-			'content'  => null,
-			'callback' => [ $this, 'help_welcome_panel' ]
-		] );
-
-		// Dashboard widget tab.
-		$screen->add_help_tab( [
-			'id'       => 'help_dashboard_widgets',
-			'title'    => __( 'Dashboard Widgets', 'grande-design' ),
-			'content'  => null,
-			'callback' => [ $this, 'help_dashboard_widgets' ]
-		] );
-
-		// Add a new sidebar.
-		$screen->set_help_sidebar(
-			$this->help_dashboard_sidebar()
-		);
-
-	}
-
-	/**
-	 * Get welcome panel help tab content.
-	 *
-	 * @since      1.0.0
-	 */
-	public function help_welcome_panel() {
-
-		include_once GGD_PATH . 'admin/dashboard/partials/help/help-welcome-panel.php';
-
-	}
-
-	/**
-	 * Get dashboard widget help tab content.
-	 *
-	 * @since      1.0.0
-	 */
-	public function help_dashboard_widgets() {
-
-		include_once GGD_PATH . 'admin/dashboard/partials/help/help-dashboard-widgets.php';
-
-	}
-
-	/**
-	 * The dashboard widget contextual tab sidebar content.
-	 *
-	 * Uses the universal slug partial for admin pages. Set this
-	 * slug in the core plugin file.
-	 *
-	 * @since      1.0.0
-	 */
-	public function help_dashboard_sidebar() {
-
-		$html  = sprintf(
-			'<h4>%1s %2s</h4>',
-			__( 'Custom Dashboard for', 'grande-design' ),
-			 get_bloginfo( 'name' )
-		);
-
-		$html .= '<hr />';
-
-		$html .= sprintf(
-			'<p>%1s <a href="%2s">%3s</a></p>',
-			__( 'Customize your' ),
-			esc_url( 'http://localhost/controlledchaos/wp-admin/index.php?page=' . GGD_ADMIN_SLUG . '-settings' ),
-			__( 'Dashboard Settings' )
-		);
-
-		return $html;
-
 	}
 
 	/**
@@ -317,9 +202,25 @@ class Dashboard {
 		if ( $screen->id == 'dashboard' ) {
 			wp_enqueue_style( GGD_ADMIN_SLUG . '-dashboard', GGD_URL .  'admin/dashboard/assets/css/dashboard.min.css', [], null, 'screen' );
 		}
-
 	}
 
+	/**
+	 * Remove the welcome panel dismiss button if option selected.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function dashboard_content() {
+
+		$welcome = locate_template( 'template-parts/admin/dashboard.php' );
+
+		if ( ! empty( $welcome ) ) {
+			get_template_part( 'template-parts/admin/dashboard' );
+		} else {
+			include_once GGD_PATH . 'admin/dashboard/partials/dashboard.php';
+		}
+	}
 }
 
 /**
@@ -330,9 +231,7 @@ class Dashboard {
  * @return object Returns an instance of the class.
  */
 function ggd_dashboard() {
-
-	return Dashboard::instance();
-
+	return Dashboard :: instance();
 }
 
 // Run an instance of the class.
